@@ -1,0 +1,24 @@
+// import { useState } from "react";
+// import { invoke } from "@tauri-apps/api/core";
+import "./App.css";
+
+function App() {
+  // const [greetMsg, setGreetMsg] = useState("");
+  // const [name, setName] = useState("");
+
+  // async function greet() {
+  //   // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+  //   setGreetMsg(await invoke("greet", { name }));
+  // }
+
+  return (
+    <main className="container">
+      <h1>Welcome to Prepfolio</h1>
+      <h3>Tasks</h3>
+      <h3>Timer</h3>
+      <h3>Persistent Clipboard</h3>
+    </main>
+  );
+}
+
+export default App;

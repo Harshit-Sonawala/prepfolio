@@ -12,12 +12,30 @@ function App() {
   // }
 
   return (
-    <main className="container">
-      <h1>Welcome to Prepfolio</h1>
-      <h3>Tasks</h3>
-      <h3>Timer</h3>
-      <h3>Persistent Clipboard</h3>
-    </main>
+    <div className="root">
+      <div className="main-section">
+        <h1 className="pd-md">Prepfolio</h1>
+        <div className="row align-stretch">
+          <div className="sub-section">
+            <h3 className="color-sec-1">Tasks</h3>
+            <p>Add and remove tasks from your checklist.</p>
+            <div className="sub-content">Tasks Content</div>
+          </div>
+          <div className="spacer-x"></div>
+          <div className="sub-section">
+            <h3 className="color-sec-2">Pomodoro Timer</h3>
+            <p>Timer to manage your tasks and send notifications.</p>
+            <div className="sub-content">Timer Content</div>
+          </div>
+          <div className="spacer-x"></div>
+          <div className="sub-section">
+            <h3 className="color-sec-3">Persistent Clipboard</h3>
+            <p>Click to copy to clipboard. Paste to add it here.</p>
+            <div className="sub-content">Clipboard content</div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

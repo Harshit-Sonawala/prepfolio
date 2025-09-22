@@ -1,28 +1,140 @@
+/* Fonts */
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Colors */
+:root {
+  --primary-color: #39b3d8;
+  --secondary-color1: #30c779;
+  --secondary-color2: #6f62de;
+  --secondary-color3: #e1d554;
+}
+
+/* Defaults / Reset */
 *{
+  /* display: block; */
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  outline: none;
   border: 0;
+  font-family: "Inter";
   font-size: medium;
   font-weight: normal;
-  outline: none;
-  border: none;
+  font-style: normal;
+  font-size: 18px;
+  /* border: 1px dotted white; */
 }
 
 /* Layouts */
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
 
 .row {
   display: flex;
+  flex-direction: row wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  flex: 1;
 }
 
+.col {
+  display: flex;
+  flex-direction: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+}
 
+.align-stretch {
+  align-items: stretch;
+}
+
+.pd-lg {
+  padding: 2rem;
+}
+
+.pd-md {
+  padding: 0.5rem;
+}
+
+.pd-sm {
+  padding: 0.2rem;
+}
+
+.spacer-y {
+  height: 1rem;
+}
+
+.spacer-x {
+  width: 1rem;
+}
+
+.root {
+  height: 100vh;
+  display: flex;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: flex-start;
+  flex-grow: 1;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;  
+  background-color: #1d1d1d;
+}
+
+.sub-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #222222;
+}
+
+.sub-content {
+  padding: 5rem;
+}
+
+body {
+  background-color: #111111;
+  color: #eeeeee;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--primary-color);
+}
+
+h3 {
+  padding: 6px 0;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+}
+
+.color-prim {
+  color: var(--primary-color);
+}
+.color-sec-1 {
+  color: var(--secondary-color1);
+}
+.color-sec-2 {
+  color: var(--secondary-color2);
+}
+.color-sec-3 {
+  color: var(--secondary-color3);
+}
+
+/* Inputs */
 input,
 button {
   border-radius: 8px;

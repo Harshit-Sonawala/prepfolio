@@ -18,23 +18,24 @@
 *{
   /* display: block; */
   box-sizing: border-box;
+  overscroll-behavior: none;
+  /* overflow: hidden; */
   margin: 0;
   padding: 0;
   outline: none;
   border: 0;
+  /* border: 1px dotted white; */
   font-family: "Inter";
   font-size: medium;
   font-weight: normal;
   font-style: normal;
-  font-size: 18px;
-  /* border: 1px dotted white; */
+  font-size: 14px;
 }
 
 /* Layouts */
-
 .row {
   display: flex;
-  flex-direction: row wrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: flex-start;
   flex: 1;
@@ -42,7 +43,7 @@
 
 .col {
   display: flex;
-  flex-direction: column wrap;
+  flex-flow: column;
   justify-content: center;
   align-items: flex-start;
   flex: 1;
@@ -50,6 +51,10 @@
 
 .align-stretch {
   align-items: stretch;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .pd-lg {
@@ -79,46 +84,48 @@
 
 .main-section {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   justify-content: flex-start; 
   align-items: flex-start;
   flex-grow: 1;
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 10px;  
-  background-color: #1d1d1d;
+  /* margin: 1rem; */
+  padding: 0 1rem;
+  /* border-radius: 10px; */
 }
 
 .sub-section {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-grow: 1;
+  /* margin: 1rem; */
   padding: 1rem;
   border-radius: 10px;
   background-color: #222222;
 }
 
 .sub-content {
-  padding: 5rem;
+  padding: 1rem;
 }
 
 body {
-  background-color: #111111;
+  background-color: #1d1d1d;
   color: #eeeeee;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--primary-color);
+  padding-bottom: 0.5em;
 }
 
 h3 {
-  padding: 6px 0;
-  font-size: 24px;
-  letter-spacing: 0.05em;
+  font-size: 22px;
+  padding-bottom: 0.5em;
+  /* letter-spacing: 0.05em; */
 }
 
 .color-prim {
@@ -158,9 +165,4 @@ button:hover {
 button:active {
   border-color: #396cd8;
   background-color: #e8e8e8;
-}
-
-input,
-button {
-  outline: none;
 }

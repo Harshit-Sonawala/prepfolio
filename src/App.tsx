@@ -14,7 +14,9 @@ function App() {
   return (
     <div className="root">
       <div className="main-section">
+          <div className="spacer-y"></div>
         <h1 className="pd-md">Prepfolio</h1>
+          <div className="spacer-y"></div>
         <div className="row align-stretch">
           <div className="sub-section">
             <h3 className="color-sec-1">Tasks</h3>

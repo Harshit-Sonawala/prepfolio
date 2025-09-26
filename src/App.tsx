@@ -13,24 +13,27 @@ function App() {
 
   return (
     <div className="root">
-      <div className="main-section">
-          <div className="spacer-y"></div>
-        <h1 className="pd-md">Prepfolio</h1>
-          <div className="spacer-y"></div>
+      <div className="main-section column">
+        <div className="row">
+          <h1 className="pd-md">Prepfolio</h1>
+          <button>SETTINGS</button>
+        </div>
+
         <div className="row align-stretch">
-          <div className="sub-section">
+
+          <div className="sub-section column align-start">
             <h3 className="color-sec-1">Tasks</h3>
             <p>Add and remove tasks from your checklist.</p>
             <div className="sub-content">Tasks Content</div>
           </div>
-          <div className="spacer-x"></div>
-          <div className="sub-section">
+          
+          <div className="sub-section column align-start">
             <h3 className="color-sec-2">Pomodoro Timer</h3>
             <p>Timer to manage your tasks and send notifications.</p>
             <div className="sub-content">Timer Content</div>
           </div>
-          <div className="spacer-x"></div>
-          <div className="sub-section">
+          
+          <div className="sub-section column align-start">
             <h3 className="color-sec-3">Persistent Clipboard</h3>
             <p>Click to copy to clipboard. Paste to add it here.</p>
             <div className="sub-content">Clipboard content</div>

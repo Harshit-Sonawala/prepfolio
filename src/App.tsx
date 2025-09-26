@@ -13,29 +13,24 @@ function App() {
 
   return (
     <div className="root">
-      <div className="main-section column">
-        <div className="row">
+      <div className="main column gap-sm align-stretch">
+        <div className="row justify-between">
           <h1 className="pd-md">Prepfolio</h1>
           <button>SETTINGS</button>
         </div>
 
-        <div className="row align-stretch">
-
-          <div className="sub-section column align-start">
-            <h3 className="color-sec-1">Tasks</h3>
-            <p>Add and remove tasks from your checklist.</p>
-            <div className="sub-content">Tasks Content</div>
-          </div>
+        <div className="row flex-1 gap-md justify-stretch align-stretch">
           
-          <div className="sub-section column align-start">
-            <h3 className="color-sec-2">Pomodoro Timer</h3>
-            <p>Timer to manage your tasks and send notifications.</p>
+          
+          <div className="card">
+            <h3 className="color-sec-2 pd-y-md">Pomodoro Timer</h3>
+            <p className="pd-md">Timer to manage your tasks and send notifications.</p>
             <div className="sub-content">Timer Content</div>
           </div>
           
-          <div className="sub-section column align-start">
-            <h3 className="color-sec-3">Persistent Clipboard</h3>
-            <p>Click to copy to clipboard. Paste to add it here.</p>
+          <div className="card">
+            <h3 className="color-sec-3 pd-y-md">Persistent Clipboard</h3>
+            <p className="pd-md">Click to copy to clipboard. Paste to add it here.</p>
             <div className="sub-content">Clipboard content</div>
           </div>
         </div>

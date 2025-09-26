@@ -21,13 +21,13 @@
 /* Colors */
 :root {
   --background-color: #1d1d1d;
-  --surface-color: #2d2d2d;
-  --surface-top-color: #3d3d3d;
+  --surface-color: #222222;
+  --surface-top-color: #333333;
   --foreground-color: #f4f4f4;
   --primary-color: #60daff;
   --secondary-color1: #0bddb0;
-  --secondary-color2: #6f62de;
-  --secondary-color3: #e1d554;
+  --secondary-color2: #7e83e6;
+  --secondary-color3: #e1d550;
   --error-color: #e54f35;
 }
 
@@ -40,7 +40,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  /* border: 1px dotted white; */
+  /* border: 1px dotted var(--foreground-color); */
   outline: none;
   font-family: "Inter";
   font-weight: normal;
@@ -55,6 +55,16 @@
 
 body {
   background-color: var(--background-color);
+}
+
+.root {
+  height: 100vh;
+  display: flex;
+}
+
+.main {
+  flex: 1;
+  padding: 1rem;
 }
 
 /* Layouts */
@@ -72,16 +82,9 @@ body {
   align-items: center;
 }
 
-.align-center {
-  align-items: center;  
+.flex-1 {
+  flex: 1;
 }
-.align-stretch {
-  align-items: stretch;
-}
-.align-start {
-  align-items: flex-start;
-}
-
 .justify-center {
   justify-content: center;
 }
@@ -91,12 +94,33 @@ body {
 .justify-start {
   justify-content: flex-start;
 }
+.justify-between {
+  justify-content: space-between;
+}
+.align-center {
+  align-items: center;  
+}
+.align-stretch {
+  align-items: stretch;
+}
+.align-start {
+  align-items: flex-start;
+}
+.gap-md {
+  gap: 1rem;
+}
+.gap-sm {
+  gap: 0.5rem;
+}
 
 .pd-lg {
-  padding: 2rem;
+  padding: 1rem;
 }
 .pd-md {
   padding: 0.5rem;
+}
+.pd-y-md {
+  padding: 0.5rem 0;
 }
 .pd-sm {
   padding: 0.2rem;
@@ -109,40 +133,34 @@ body {
   width: 1rem;
 }
 
-.root {
-  height: 100vh;
-  display: flex;
-}
-
-.main-section {
-  flex-grow: 1;
-  padding: 1rem;
-}
-
-.sub-section {
-  flex-grow: 1;
+.card {
   flex: 1;
-  padding: 1rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1rem 2rem;
   border-radius: 10px;
-  background-color: #222222;
+  background-color: var(--surface-color);
 }
 
 .sub-content {
-  padding: 1rem;
+  padding: 5rem;
 }
 
 h1 {
   font-family: 'ProductSans';
-  font-size: 42px;
-  /* letter-spacing: 0.05em; */
+  font-size: 2.5rem;
+  font-weight: 600;
   color: var(--primary-color);
-  padding: 0.5em;
+  letter-spacing: 0.05em;
 }
 
 h3 {
-  font-size: 28px;
-  /* padding: 0.5em; */
-  /* letter-spacing: 0.05em; */
+  font-family: 'ProductSans';
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 .color-prim {
@@ -166,8 +184,8 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  color: #0f0f0f;
-  background-color: #ffffff;
+  color: var(--foreground-color);
+  background-color: var(--surface-top-color);
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }

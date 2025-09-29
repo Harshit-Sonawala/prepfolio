@@ -22,7 +22,8 @@
 :root {
   --background-color: #1d1d1d;
   --surface-color: #222222;
-  --surface-top-color: #333333;
+  --surface-top-color: #2d2d2d;
+  --surface-bright-color: #333333;
   --foreground-color: #f4f4f4;
   --primary-color: #60daff;
   --secondary-color1: #0bddb0;
@@ -45,7 +46,7 @@
   font-family: "Inter";
   font-weight: normal;
   font-style: normal;
-  font-size: 14px;
+  font-size: 1rem;
   color: var(--foreground-color);
 }
 
@@ -129,6 +130,9 @@ body {
 .spacer-y {
   height: 1rem;
 }
+.spacer-y-sm {
+  height: 0.2rem;
+}
 .spacer-x {
   width: 1rem;
 }
@@ -137,15 +141,11 @@ body {
   flex: 1;
   display: flex;
   flex-flow: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 1rem 2rem;
+  justify-content: stretch;
+  align-items: stretch;
+  padding: 1rem 1.5rem;
   border-radius: 10px;
   background-color: var(--surface-color);
-}
-
-.sub-content {
-  padding: 5rem;
 }
 
 h1 {
@@ -155,12 +155,15 @@ h1 {
   color: var(--primary-color);
   letter-spacing: 0.05em;
 }
-
-h3 {
+h2 {
   font-family: 'ProductSans';
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: 0.05em;
+}
+h3 {
+  font-size: 1.1rem;
+  font-weight: normal;
 }
 
 .color-prim {
@@ -175,31 +178,42 @@ h3 {
 .color-sec-3 {
   color: var(--secondary-color3);
 }
+.bgcolor-surface-top {
+  background-color: var(--surface-top-color);
+}
+.bgcolor-surface-bright {
+  background-color: var(--surface-bright-color);
+}
 
 /* Inputs */
 input,
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border-radius: 10px;
   padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   color: var(--foreground-color);
   background-color: var(--surface-top-color);
-  transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  /* transition: border-color 0.25s; */
+  /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); */
 }
 
 button {
   cursor: pointer;
-  border-radius: 20px;
-  font-weight: bold;
+  border-radius: 50px;
+  /* font-weight: bold; */
 }
 
 button:hover {
-  border-color: #396cd8;
+  background-color: var(--primary-color);
 }
 button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
+  background-color: var(--secondary-color2);
+}
+
+.taskcard {
+  flex: 1;
+  display: flex;
+  background-color: var(--surface-top-color);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
 }

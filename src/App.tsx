@@ -1,6 +1,9 @@
 // import { useState } from "react";
 // import { invoke } from "@tauri-apps/api/core";
-import "./App.css";
+import './App.css';
+import Tasks from './components/Tasks';
+import Timer from './components/Timer';
+import Clipboard from './components/Clipboard';
 
 function App() {
   // const [greetMsg, setGreetMsg] = useState("");
@@ -20,19 +23,9 @@ function App() {
         </div>
 
         <div className="row flex-1 gap-md justify-stretch align-stretch">
-          
-          
-          <div className="card">
-            <h3 className="color-sec-2 pd-y-md">Pomodoro Timer</h3>
-            <p className="pd-md">Timer to manage your tasks and send notifications.</p>
-            <div className="sub-content">Timer Content</div>
-          </div>
-          
-          <div className="card">
-            <h3 className="color-sec-3 pd-y-md">Persistent Clipboard</h3>
-            <p className="pd-md">Click to copy to clipboard. Paste to add it here.</p>
-            <div className="sub-content">Clipboard content</div>
-          </div>
+          <Tasks />
+          <Timer />
+          <Clipboard />
         </div>
       </div>
     </div>

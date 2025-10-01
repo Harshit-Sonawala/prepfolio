@@ -20,8 +20,8 @@ const TaskCard = (props: TaskCardProps) => {
         <div className="spacer-x" />
         <div className="col">
           <h3>{props.title}</h3>
-          <div className="spacer-y-sm"></div>
-          <p>{props.description}</p>
+          <div className="spacer-y-sm" />
+          <p className="color-on-surface-dark">{props.description}</p>
         </div>
       </div>
     </div>

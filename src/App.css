@@ -12,6 +12,12 @@
   font-style: normal;
 }
 @font-face {
+  font-family: 'TTNormsPro';
+  src: url("../assets/fonts/TTNormsPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
   font-family: 'RobotoMono';
   src: url("../assets/fonts/RobotoMono-Regular.ttf") format("truetype");
   font-weight: normal;
@@ -33,6 +39,28 @@
   --error-color: #e54f35;
 }
 
+.color-prim {
+  color: var(--primary-color);
+}
+.color-on-surface-dark {
+  color: var(--onsurface-dark-color);
+}
+.color-sec-1 {
+  color: var(--secondary-color1);
+}
+.color-sec-2 {
+  color: var(--secondary-color2);
+}
+.color-sec-3 {
+  color: var(--secondary-color3);
+}
+.bgcolor-surface-top {
+  background-color: var(--surface-top-color);
+}
+.bgcolor-surface-bright {
+  background-color: var(--surface-bright-color);
+}
+
 /* Defaults / Reset */
 *{
   /* display: block; */
@@ -44,7 +72,8 @@
   border: 0;
   /* border: 1px dotted var(--onsurface-color); */
   outline: none;
-  font-family: "Inter";
+  font-family: "ProductSans";
+  letter-spacing: 0.02em;
   font-weight: normal;
   font-style: normal;
   font-size: 1rem;
@@ -66,7 +95,7 @@ body {
 
 .main {
   flex: 1;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 /* Layouts */
@@ -121,6 +150,9 @@ body {
 .pd-md {
   padding: 0.5rem;
 }
+.pd-x-md {
+  padding: 0 0.5rem;
+}
 .pd-y-md {
   padding: 0.5rem 0;
 }
@@ -129,37 +161,23 @@ body {
 }
 
 .spacer-y {
-  height: 1rem;
-}
-.spacer-y-sm {
-  height: 0.2rem;
+  height: 0.5rem;
 }
 .spacer-x {
-  width: 1rem;
-}
-
-.card {
-  flex: 1;
-  display: flex;
-  flex-flow: column;
-  justify-content: stretch;
-  align-items: stretch;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  background-color: var(--surface-color);
+  width: 0.5rem;
 }
 
 h1 {
-  font-family: 'ProductSans';
-  font-size: 2.5rem;
+  font-family: 'TTNormsPro';
+  font-size: 2.2rem;
   font-weight: 600;
   color: var(--primary-color);
-  letter-spacing: 0.05em;
+  /* letter-spacing: 0.05em; */
 }
 h2 {
-  font-family: 'ProductSans';
-  font-size: 2rem;
-  /* font-weight: 600; */
+  font-family: 'TTNormsPro';
+  font-size: 1.8rem;
+  font-weight: 600;
   /* letter-spacing: 0.05em; */
 }
 h3 {
@@ -168,36 +186,13 @@ h3 {
   color: var(--onsurface-color);
 }
 
-.color-prim {
-  color: var(--primary-color);
-}
-.color-on-surface-dark {
-  color: var(--onsurface-dark-color);
-}
-.color-sec-1 {
-  color: var(--secondary-color1);
-}
-.color-sec-2 {
-  color: var(--secondary-color2);
-}
-.color-sec-3 {
-  color: var(--secondary-color3);
-}
-.bgcolor-surface-top {
-  background-color: var(--surface-top-color);
-}
-.bgcolor-surface-bright {
-  background-color: var(--surface-bright-color);
-}
-
 /* Inputs */
 input, button {
   border-radius: 10px;
   padding: 0.6em 1.2em;
   color: var(--onsurface-color);
   background-color: var(--surface-top-color);
-  /* transition: border-color 0.25s; */
-  /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); */
+  font-size: 1.1em;
 }
 button {
   cursor: pointer;
@@ -216,11 +211,22 @@ input[type="checkbox"] {
 }
 
 /* Specifics */
+.card {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: stretch;
+  align-items: stretch;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--surface-color);
+}
+
 .taskcard {
   flex: 1;
   display: flex;
   background-color: var(--surface-top-color);
-  padding: 0.6rem 1rem;
+  padding: 0.2rem;
   border-radius: 8px;
   margin-bottom: 0.5rem;
 }

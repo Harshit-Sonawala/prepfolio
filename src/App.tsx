@@ -18,11 +18,13 @@ function App() {
     <div className="root">
       <div className="main column gap-sm align-stretch">
         <div className="row justify-between">
-          <h1 className="pd-md">Prepfolio</h1>
+          <div className="pd-x-md">
+            <h1 className="pd-sm">Prepfolio</h1>
+          </div>
           <button>SETTINGS</button>
         </div>
 
-        <div className="row flex-1 gap-md justify-stretch align-stretch">
+        <div className="row flex-1 gap-sm justify-stretch align-stretch">
           <Tasks />
           <Timer />
           <Clipboard />

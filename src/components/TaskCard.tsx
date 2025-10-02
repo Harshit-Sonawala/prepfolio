@@ -1,4 +1,5 @@
 import React from 'react';
+import { Checkbox } from '@mui/material';
 
 type TaskCardProps = {
   id: number;
@@ -6,23 +7,18 @@ type TaskCardProps = {
   description?: string;
   dueDate?: Date;
   completed: boolean;
+  onToggle: (id: number) => void;
 };
 
 const TaskCard = (props: TaskCardProps) => {
   return (
     <div className="taskcard">
       <div className="row">
-        {props.completed ? (
-          <input type="checkbox" checked={true} />
-        ) : (
-          <input type="checkbox" checked={false} />
-        )}
-        <div className="spacer-x" />
-        <div className="col">
-          <h3>{props.title}</h3>
-          <div className="spacer-y-sm" />
-          <p className="color-on-surface-dark">{props.description}</p>
-        </div>
+        <Checkbox
+          checked={props.completed}
+          onChange={() => props.onToggle(props.id)}
+        />
+        <h3>{props.title}</h3>
       </div>
     </div>
   );

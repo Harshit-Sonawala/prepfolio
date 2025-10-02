@@ -17,6 +17,10 @@ const Tasks = () => {
     );
   };
 
+  const deleteTask = (taskId: number) => {
+    setTasks(tasks.filter((eachTask) => eachTask.id !== taskId));
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && newTaskTitle.trim() !== '') {
       const newTask: Task = {
@@ -45,6 +49,7 @@ const Tasks = () => {
             title={eachTask.title}
             completed={eachTask.completed}
             onToggle={toggleTaskCompleted}
+            onDelete={deleteTask}
           />
         ))}
         <div className="taskcard">

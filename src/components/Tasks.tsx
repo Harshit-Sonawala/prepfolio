@@ -53,19 +53,16 @@ const Tasks = () => {
           />
         ))}
         <div className="taskcard">
-          <div className="row">
+          <div className="row nowrap">
             <Checkbox checked={false} />
-            {/* <div className="spacer-x" /> */}
-            <div className="col">
-              <input
-                type="text"
-                className="inline-input"
-                placeholder="New Task..."
-                value={newTaskTitle}
-                onChange={(e) => setNewTaskTitle(e.target.value)}
-                onKeyDown={handleKeyDown}
-              />
-            </div>
+            <input
+              type="text"
+              className="inline-input"
+              placeholder="New Task..."
+              value={newTaskTitle}
+              onChange={(e) => setNewTaskTitle(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
           </div>
         </div>
       </div>

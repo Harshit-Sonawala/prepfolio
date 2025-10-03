@@ -15,7 +15,7 @@ type TaskCardProps = {
 const TaskCard = (props: TaskCardProps) => {
   return (
     <div className="taskcard">
-      <div className="row flex-1 justify-between">
+      <div className="row nowrap flex-1 justify-between">
         <div className="row">
           <Checkbox
             checked={props.completed}

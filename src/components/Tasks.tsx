@@ -1,11 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Task } from '../models/Task';
 import TaskCard from './TaskCard';
 import { Checkbox } from '@mui/material';
+import { load } from '@tauri-apps/plugin-store';
 
 const Tasks = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState<string>('');
+
+  // load tasks from file on mount
+  useEffect(() => {
+    const loadTasks = async () => {
+      const fileStore = await load('tasks.json');
+      const allTasks = await fileStore.get<Task[]>('allTasks');
+      if (allTasks) {
+        setTasks(allTasks);
+      }
+    };
+    loadTasks();
+  }, []);
+
+  // save tasks whenever they change
+  useEffect(() => {
+    const saveTasks = async () => {
+      const fileStore = await load('tasks.json');
+      await fileStore.set('allTasks', tasks);
+      await fileStore.save();
+    };
+    saveTasks();
+  }, [tasks]);
 
   const toggleTaskCompleted = (taskId: number) => {
     setTasks(

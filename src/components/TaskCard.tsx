@@ -16,7 +16,7 @@ const TaskCard = (props: TaskCardProps) => {
   return (
     <div className="taskcard">
       <div className="row nowrap flex-1 justify-between">
-        <div className="row">
+        <div className="row nowrap">
           <Checkbox
             checked={props.completed}
             onChange={() => props.onToggle(props.id)}

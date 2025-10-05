@@ -7,6 +7,7 @@ import { load } from '@tauri-apps/plugin-store';
 const Tasks = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState<string>('');
+  const [isFileLoaded, setIsFileLoaded] = useState<boolean>(false);
 
   // load tasks from file on mount
   useEffect(() => {
@@ -16,19 +17,24 @@ const Tasks = () => {
       if (allTasks) {
         setTasks(allTasks);
       }
+      setIsFileLoaded(true); // Mark loaded
+      console.log('Loaded Tasks');
     };
     loadTasks();
   }, []);
 
-  // save tasks whenever they change
+  // save tasks whenever they change & only after isFileLoaded
   useEffect(() => {
+    if (!isFileLoaded) return;
+
     const saveTasks = async () => {
       const fileStore = await load('tasks.json');
       await fileStore.set('allTasks', tasks);
       await fileStore.save();
+      console.log('Saved Tasks');
     };
     saveTasks();
-  }, [tasks]);
+  }, [tasks, isFileLoaded]);
 
   const toggleTaskCompleted = (taskId: number) => {
     setTasks(
@@ -59,33 +65,35 @@ const Tasks = () => {
   return (
     <div className="card">
       <h2 className="color-sec-1">Tasks</h2>
-      <p>Manage your task checklist. Enter adds a new task.</p>
+      <p>Manage your task checklists. Enter adds a new task.</p>
       <div className="spacer-y" />
       <div className="flex-1 col">
         {/* <TaskCard id={0} title="First Task" completed={false}></TaskCard>
         <TaskCard id={1} title="Second Task" completed={true}></TaskCard>
         <TaskCard id={2} title="Third Task" completed={false}></TaskCard> */}
-        {tasks.map((eachTask) => (
-          <TaskCard
-            key={eachTask.id}
-            id={eachTask.id}
-            title={eachTask.title}
-            completed={eachTask.completed}
-            onToggle={toggleTaskCompleted}
-            onDelete={deleteTask}
-          />
-        ))}
-        <div className="taskcard">
-          <div className="row nowrap">
-            <Checkbox checked={false} />
-            <input
-              type="text"
-              className="inline-input"
-              placeholder="New Task..."
-              value={newTaskTitle}
-              onChange={(e) => setNewTaskTitle(e.target.value)}
-              onKeyDown={handleKeyDown}
+        <div className="taskgroupcard">
+          {tasks.map((eachTask) => (
+            <TaskCard
+              key={eachTask.id}
+              id={eachTask.id}
+              title={eachTask.title}
+              completed={eachTask.completed}
+              onToggle={toggleTaskCompleted}
+              onDelete={deleteTask}
             />
+          ))}
+          <div className="taskcard">
+            <div className="row nowrap">
+              <Checkbox checked={false} />
+              <input
+                type="text"
+                className="inline-input"
+                placeholder="New Task..."
+                value={newTaskTitle}
+                onChange={(e) => setNewTaskTitle(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
+            </div>
           </div>
         </div>
       </div>

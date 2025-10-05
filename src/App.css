@@ -219,17 +219,23 @@ input[type="checkbox"] {
   justify-content: stretch;
   align-items: stretch;
   padding: 1rem;
-  border-radius: 10px;
   background-color: var(--surface-color);
+  border-radius: 10px;
+}
+
+.taskgroupcard {
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--surface-top-color);
+  border-radius: 10px;
 }
 
 .taskcard {
   flex: 1;
   display: flex;
-  background-color: var(--surface-top-color);
-  padding: 0.2rem;
+  /* background-color: var(--surface-top-color); */
+  background-color: transparent;
   border-radius: 8px;
-  margin-bottom: 0.5rem;
 }
 
 .inline-input {

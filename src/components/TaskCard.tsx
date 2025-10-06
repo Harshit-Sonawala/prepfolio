@@ -1,11 +1,9 @@
-import React from 'react';
 import { Checkbox, IconButton } from '@mui/material';
 import { CloseRounded } from '@mui/icons-material';
 
 type TaskCardProps = {
   id: number;
   title: string;
-  description?: string;
   dueDate?: Date;
   completed: boolean;
   onToggle: (id: number) => void;
@@ -18,10 +16,11 @@ const TaskCard = (props: TaskCardProps) => {
       <div className="row nowrap flex-1 justify-between">
         <div className="row nowrap">
           <Checkbox
+            color="primary"
             checked={props.completed}
             onChange={() => props.onToggle(props.id)}
           />
-          <h3>{props.title}</h3>
+          <p>{props.title}</p>
         </div>
         <IconButton onClick={() => props.onDelete(props.id)}>
           <CloseRounded />

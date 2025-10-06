@@ -29,7 +29,7 @@
   --background-color: #1d1d1d;
   --surface-color: #222222;
   --surface-top-color: #2d2d2d;
-  --surface-bright-color: #333333;
+  --surface-bright-color: #3d3d3d;
   --onsurface-color: #f4f4f4;
   --onsurface-dark-color: #aaaaaa;
   --primary-color: #60daff;
@@ -157,6 +157,9 @@ body {
 .pd-y-md {
   padding: 0.5rem 0;
 }
+.pd-y-sm {
+  padding: 0.2rem 0;
+}
 .pd-sm {
   padding: 0.2rem;
 }
@@ -182,9 +185,8 @@ h2 {
   /* letter-spacing: 0.05em; */
 }
 h3 {
-  font-size: 1.1rem;
-  font-weight: normal;
-  color: var(--onsurface-color);
+  font-size: 1.2rem;
+  color: var(--primary-color);
 }
 
 /* Inputs */
@@ -193,7 +195,7 @@ input, button {
   padding: 0.6em 1.2em;
   color: var(--onsurface-color);
   background-color: var(--surface-top-color);
-  font-size: 1.1em;
+  font-size: 1rem;
 }
 button {
   cursor: pointer;
@@ -223,7 +225,7 @@ input[type="checkbox"] {
   border-radius: 10px;
 }
 
-.taskgroupcard {
+.card-surface-top {
   padding: 0.2rem;
   margin-bottom: 0.5rem;
   background-color: var(--surface-top-color);
@@ -236,6 +238,15 @@ input[type="checkbox"] {
   /* background-color: var(--surface-top-color); */
   background-color: transparent;
   border-radius: 8px;
+}
+
+.timercard {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--surface-top-color);
+  border-radius: 10px;
 }
 
 .inline-input {

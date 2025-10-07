@@ -16,9 +16,22 @@ const TaskCard = (props: TaskCardProps) => {
       <div className="row nowrap flex-1 justify-between">
         <div className="row nowrap">
           <Checkbox
-            color="primary"
             checked={props.completed}
             onChange={() => props.onToggle(props.id)}
+            // style={{ color: '#60daff' }}
+            sx={{
+              color: '#60daff !important',
+              '& .MuiSvgIcon-root': {
+                // Target the SVG icon inside
+                color: '#60daff',
+              },
+              '&.Mui-checked': {
+                color: '#60daff',
+                '& .MuiSvgIcon-root': {
+                  color: '#60daff',
+                },
+              },
+            }}
           />
           <p>{props.title}</p>
         </div>

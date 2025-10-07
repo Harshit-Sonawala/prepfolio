@@ -1,4 +1,4 @@
-import { Button, IconButton } from '@mui/material';
+import { Button, IconButton, CircularProgress } from '@mui/material';
 import {
   PlayArrowRounded,
   StopRounded,
@@ -18,28 +18,49 @@ type TimerCardProps = {
 
 const TimerCard = (props: TimerCardProps) => {
   return (
-    <div className="timercard">
+    <div className="timercard gap-sm">
       <div className="row justify-between">
         <h3>{props.title}</h3>
         <IconButton onClick={() => props.onDelete(props.id)}>
           <CloseRounded />
         </IconButton>
       </div>
-      <div className="spacer-y" />
-      <div className="spacer-y" />
-      <div className="row">
-        <h1 className="flex-1 align-center">{props.seconds}</h1>
-        <div className="row nowrap flex-1 align-center justify-between">
+      <div className="row gap-md">
+        <div className="stackparent">
+          <CircularProgress
+            variant="determinate"
+            value={props.seconds}
+            size={120}
+            thickness={2.5}
+            color="primary"
+          />
+          <div className="stackchild">
+            <h1 className="color-sec-2">{props.seconds}</h1>
+          </div>
+        </div>
+        <div className="row nowrap flex-1 align-center justify-between gap-md">
           {props.isActive ? (
-            <Button variant="contained" startIcon={<StopRounded />}>
+            <Button
+              className="flex-1"
+              variant="contained"
+              startIcon={<StopRounded />}
+            >
               STOP
             </Button>
           ) : (
-            <Button variant="contained" startIcon={<PlayArrowRounded />}>
+            <Button
+              className="flex-1"
+              variant="contained"
+              startIcon={<PlayArrowRounded />}
+            >
               START
             </Button>
           )}
-          <Button variant="contained" startIcon={<ReplayRounded />}>
+          <Button
+            className="flex-1"
+            variant="contained"
+            startIcon={<ReplayRounded />}
+          >
             RESTART
           </Button>
         </div>

@@ -64,16 +64,10 @@ const Tasks = () => {
   };
 
   return (
-    <div className="card">
+    <div className="card gap-sm">
       <h2 className="color-sec-1">Tasks</h2>
-      <div className="spacer-y" />
       <p>Manage your task checklists. Enter adds a new task.</p>
-      <div className="spacer-y" />
-      <div className="spacer-y" />
-      {/* <TaskCard id={0} title="First Task" completed={false}></TaskCard>
-        <TaskCard id={1} title="Second Task" completed={true}></TaskCard>
-        <TaskCard id={2} title="Third Task" completed={false}></TaskCard> */}
-      <div className="card-surface-top">
+      <div className="card-surface-top gap-sm">
         {tasks.map((eachTask) => (
           <TaskCard
             key={eachTask.id}
@@ -89,6 +83,7 @@ const Tasks = () => {
             <Checkbox checked={false} />
             <input
               type="text"
+              name="newTaskTitle"
               className="inline-input"
               placeholder="New Task..."
               value={newTaskTitle}

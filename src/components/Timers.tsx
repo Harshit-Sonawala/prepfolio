@@ -41,14 +41,13 @@ const Timers = () => {
   // }, [timers, isFileLoaded]);
 
   return (
-    <div className="card">
+    <div className="card gap-sm">
       <h2 className="color-sec-2">Timers</h2>
-      <div className="spacer-y" />
       <p>Set timers to manage your tasks and send notifications.</p>
-      <div className="spacer-y" />
-      <div className="spacer-y" />
+
       {timers.map((eachTimer) => (
         <TimerCard
+          key={eachTimer.id}
           id={eachTimer.id}
           title={eachTimer.title ?? `Timer ${eachTimer.id}`}
           seconds={eachTimer.seconds}

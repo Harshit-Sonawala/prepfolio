@@ -4,8 +4,8 @@ import './App.css';
 import Tasks from './components/Tasks';
 import Timers from './components/Timers';
 import Clipboard from './components/Clipboard';
-import { ThemeProvider } from '@mui/material';
-import { globalMuiTheme } from './globalMuiTheme.ts';
+import { ThemeProvider, FormControlLabel, Switch } from '@mui/material';
+import { darkTheme, lightTheme } from './globalMuiTheme.ts';
 
 function App() {
   // const [greetMsg, setGreetMsg] = useState("");
@@ -17,20 +17,23 @@ function App() {
   // }
 
   return (
-    <ThemeProvider theme={globalMuiTheme}>
+    <ThemeProvider theme={darkTheme}>
       <div className="root">
         <div className="main column gap-md align-stretch">
           <div className="row justify-between">
             <div className="pd-x-md">
               <h1 className="pd-sm">Prepfolio</h1>
             </div>
-            <button>SETTINGS</button>
+            <FormControlLabel
+              control={<Switch defaultChecked />}
+              label="Dark Theme"
+            />
           </div>
 
           <div className="row flex-1 gap-md justify-stretch align-stretch">
             <Tasks />
-            <Timers />
-            <Clipboard />
+            {/* <Timers />
+            <Clipboard /> */}
           </div>
         </div>
       </div>

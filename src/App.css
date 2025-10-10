@@ -70,14 +70,14 @@
   margin: 0;
   padding: 0;
   border: 0;
-  border: 1px dotted var(--onsurface-color);
+  /* border: 1px dotted var(--onsurface-color); */
   outline: none;
   font-family: "ProductSans";
   letter-spacing: 0.02em;
   font-weight: normal;
   font-style: normal;
   font-size: 1rem;
-  color: var(--onsurface-color);
+  /* color: var(--onsurface-color); */
 }
 
 .debug {

@@ -3,7 +3,7 @@ import { Task } from '../models/Task';
 import { load } from '@tauri-apps/plugin-store';
 
 import TaskCard from './TaskCard';
-import { Checkbox } from '@mui/material';
+import { Typography, Checkbox } from '@mui/material';
 
 const Tasks = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -65,8 +65,11 @@ const Tasks = () => {
 
   return (
     <div className="card gap-sm">
-      <h2 className="color-sec-1">Tasks</h2>
-      <p>Manage your task checklists. Enter adds a new task.</p>
+      <Typography variant="h2">Tasks</Typography>
+      {/* <h2 className="color-sec-1">Tasks</h2> */}
+      <Typography variant="body1" gutterBottom>
+        Manage your task checklists. Enter adds a new task.
+      </Typography>
       <div className="card-surface-top gap-sm">
         {tasks.map((eachTask) => (
           <TaskCard
@@ -78,7 +81,7 @@ const Tasks = () => {
             onDelete={deleteTask}
           />
         ))}
-        <div className="taskcard">
+        <div className="task-card">
           <div className="row nowrap">
             <Checkbox checked={false} />
             <input

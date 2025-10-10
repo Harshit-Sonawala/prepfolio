@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Timer } from '../models/Timer';
+import { Typography } from '@mui/material';
 import { load } from '@tauri-apps/plugin-store';
 
 import TimerCard from './TimerCard';
@@ -42,9 +43,12 @@ const Timers = () => {
 
   return (
     <div className="card gap-sm">
-      <h2 className="color-sec-2">Timers</h2>
-      <p>Set timers to manage your tasks and send notifications.</p>
-
+      <Typography variant="h2" color="secondaryColor2">
+        Timers
+      </Typography>
+      <Typography variant="body1">
+        Set timers to manage your tasks and send notifications.
+      </Typography>
       {timers.map((eachTimer) => (
         <TimerCard
           key={eachTimer.id}

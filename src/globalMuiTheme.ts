@@ -52,11 +52,26 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
     borderRadius: 8,
   },
   typography: {
+    fontFamily: 'ProductSans',
+    body1: {
+      fontFamily: 'ProductSans',
+      color: mode === 'dark' ? '#f4f4f4' : '#1d1d1d',
+    },
     h1: {
+      fontFamily: 'TTNormsPro',
+      fontSize: '2.2rem',
+      fontWeight: 600,
       color: mode === 'dark' ? '#60daff' : '#0099cc',
     },
     h2: {
+      fontFamily: 'TTNormsPro',
+      fontSize: '1.8rem',
+      fontWeight: 600,
       color: mode === 'dark' ? '#0bddb0' : '#089d7e',
+    },
+    h3: {
+      fontSize: '1.5rem',
+      color: mode === 'dark' ? '#60daff' : '#0099cc',
     },
   },
   components: {

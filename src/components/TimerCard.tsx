@@ -1,9 +1,15 @@
-import { Button, IconButton, CircularProgress } from '@mui/material';
+import {
+  Typography,
+  Button,
+  IconButton,
+  CircularProgress,
+} from '@mui/material';
 import {
   PlayArrowRounded,
   StopRounded,
   ReplayRounded,
   CloseRounded,
+  AddRounded,
 } from '@mui/icons-material';
 
 type TimerCardProps = {
@@ -18,34 +24,40 @@ type TimerCardProps = {
 
 const TimerCard = (props: TimerCardProps) => {
   return (
-    <div className="timercard gap-sm">
+    <div className="timer-card gap-sm">
       <div className="row justify-between">
-        <h3>{props.title}</h3>
+        <Typography variant="h3" color="secondaryColor2">
+          {props.title}
+        </Typography>
         <IconButton onClick={() => props.onDelete(props.id)}>
           <CloseRounded />
         </IconButton>
       </div>
-      <div className="row gap-md">
-        <div className="stackparent">
-          <CircularProgress
-            variant="determinate"
-            value={props.seconds}
-            size={120}
-            thickness={2.5}
-            color="primary"
-          />
-          <div className="stackchild">
-            <h1 className="color-sec-2">{props.seconds}</h1>
+      <div className="row justify-evenly">
+        <div className="bgcolor-surface-bright border-circular">
+          <div className="stack-parent">
+            <CircularProgress
+              variant="determinate"
+              value={props.seconds}
+              size={120}
+              thickness={2.5}
+              color="primary"
+            />
+            <div className="stack-child">
+              <Typography variant="h1" color="white">
+                {props.seconds}
+              </Typography>
+            </div>
           </div>
         </div>
-        <div className="row nowrap flex-1 align-center justify-between gap-md">
+        <div className="col justify-evenly align-stretch gap-md">
           {props.isActive ? (
             <Button
               className="flex-1"
               variant="contained"
               startIcon={<StopRounded />}
             >
-              STOP
+              Stop
             </Button>
           ) : (
             <Button
@@ -53,7 +65,7 @@ const TimerCard = (props: TimerCardProps) => {
               variant="contained"
               startIcon={<PlayArrowRounded />}
             >
-              START
+              Start
             </Button>
           )}
           <Button
@@ -61,7 +73,14 @@ const TimerCard = (props: TimerCardProps) => {
             variant="contained"
             startIcon={<ReplayRounded />}
           >
-            RESTART
+            Restart
+          </Button>
+          <Button
+            className="flex-1"
+            variant="contained"
+            startIcon={<AddRounded />}
+          >
+            Add 1 Min
           </Button>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { Checkbox, IconButton } from '@mui/material';
+import { Typography, Checkbox, IconButton } from '@mui/material';
 import { CloseRounded } from '@mui/icons-material';
 
 type TaskCardProps = {
@@ -12,7 +12,7 @@ type TaskCardProps = {
 
 const TaskCard = (props: TaskCardProps) => {
   return (
-    <div className="taskcard">
+    <div className="task-card">
       <div className="row nowrap flex-1 justify-between">
         <div className="row nowrap">
           <Checkbox
@@ -20,7 +20,7 @@ const TaskCard = (props: TaskCardProps) => {
             onChange={() => props.onToggle(props.id)}
             color="secondary"
           />
-          <p>{props.title}</p>
+          <Typography variant="body1">{props.title}</Typography>
         </div>
         <IconButton onClick={() => props.onDelete(props.id)}>
           <CloseRounded />

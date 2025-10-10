@@ -32,8 +32,8 @@ function App() {
 
           <div className="row flex-1 gap-md justify-stretch align-stretch">
             <Tasks />
-            {/* <Timers />
-            <Clipboard /> */}
+            <Timers />
+            {/* <Clipboard /> */}
           </div>
         </div>
       </div>

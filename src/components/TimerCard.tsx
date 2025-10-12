@@ -6,6 +6,7 @@ import {
 } from '@mui/material';
 import {
   PlayArrowRounded,
+  PauseRounded,
   StopRounded,
   ReplayRounded,
   CloseRounded,
@@ -15,7 +16,8 @@ import {
 type TimerCardProps = {
   id: number;
   title: string;
-  seconds: number;
+  initialSeconds: number;
+  currentSeconds: number;
   isActive: boolean;
   togglePlay: (id: number) => void;
   onRestart: (id: number) => void;
@@ -23,6 +25,21 @@ type TimerCardProps = {
 };
 
 const TimerCard = (props: TimerCardProps) => {
+  // Determine button state based on timer conditions
+  const getButtonState = () => {
+    if (props.isActive && props.currentSeconds >= 0) {
+      // Counting down - show Pause
+      return { icon: <PauseRounded />, text: 'Pause' };
+    } else if (props.isActive && props.currentSeconds < 0) {
+      // Overtime (negative) - show Stop
+      return { icon: <StopRounded />, text: 'Stop' };
+    } else {
+      // Paused or stopped - show Start
+      return { icon: <PlayArrowRounded />, text: 'Start' };
+    }
+  };
+  const buttonState = getButtonState();
+
   return (
     <div className="timer-card gap-sm">
       <div className="row justify-between">
@@ -38,40 +55,32 @@ const TimerCard = (props: TimerCardProps) => {
           <div className="stack-parent">
             <CircularProgress
               variant="determinate"
-              value={props.seconds}
+              value={(props.currentSeconds / props.initialSeconds) * 100}
               size={120}
               thickness={2.5}
               color="primary"
             />
             <div className="stack-child">
               <Typography variant="h1" color="white">
-                {props.seconds}
+                {props.currentSeconds}
               </Typography>
             </div>
           </div>
         </div>
         <div className="col justify-evenly align-stretch gap-md">
-          {props.isActive ? (
-            <Button
-              className="flex-1"
-              variant="contained"
-              startIcon={<StopRounded />}
-            >
-              Stop
-            </Button>
-          ) : (
-            <Button
-              className="flex-1"
-              variant="contained"
-              startIcon={<PlayArrowRounded />}
-            >
-              Start
-            </Button>
-          )}
+          <Button
+            className="flex-1"
+            variant="contained"
+            startIcon={buttonState.icon}
+            onClick={() => props.togglePlay(props.id)}
+          >
+            {buttonState.text}
+          </Button>
           <Button
             className="flex-1"
             variant="contained"
             startIcon={<ReplayRounded />}
+            onClick={() => props.onRestart(props.id)}
           >
             Restart
           </Button>

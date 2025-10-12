@@ -7,12 +7,74 @@ import TimerCard from './TimerCard';
 
 const Timers = () => {
   const [timers, setTimers] = useState<Timer[]>([
-    { id: 0, title: 'Timer 1', seconds: 120, isActive: false },
-    { id: 1, title: 'Timer 2', seconds: 180, isActive: false },
-    { id: 2, title: 'Timer 3', seconds: 240, isActive: true },
+    {
+      id: 0,
+      title: 'Timer 1',
+      initialSeconds: 120,
+      currentSeconds: 120,
+      isActive: false,
+    },
+    {
+      id: 1,
+      title: 'Timer 2',
+      initialSeconds: 2700,
+      currentSeconds: 2700,
+      isActive: false,
+    },
+    {
+      id: 2,
+      title: 'Timer 3',
+      initialSeconds: 240,
+      currentSeconds: 240,
+      isActive: false,
+    },
   ]);
   const [newTimerTitle, setNewTimerTitle] = useState<string>('');
   const [isFileLoaded, setIsFileLoaded] = useState<boolean>(false);
+
+  // countdown logic runs every second and updates all active timers
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimers((prevTimers) =>
+        prevTimers.map((timer) => {
+          if (timer.isActive) {
+            return {
+              ...timer,
+              currentSeconds: timer.currentSeconds - 1,
+            };
+          }
+          return timer;
+        })
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Toggle play/pause for a timer
+  const togglePlay = (id: number) => {
+    setTimers((prevTimers) =>
+      prevTimers.map((timer) =>
+        timer.id === id ? { ...timer, isActive: !timer.isActive } : timer
+      )
+    );
+  };
+
+  // Restart timer to initial time
+  const handleRestart = (id: number) => {
+    setTimers((prevTimers) =>
+      prevTimers.map((timer) =>
+        timer.id === id
+          ? { ...timer, currentSeconds: timer.initialSeconds, isActive: false }
+          : timer
+      )
+    );
+  };
+
+  // Delete timer
+  const handleDelete = (id: number) => {
+    setTimers((prevTimers) => prevTimers.filter((timer) => timer.id !== id));
+  };
 
   // // load timers from file on mount
   // useEffect(() => {
@@ -49,16 +111,17 @@ const Timers = () => {
       <Typography variant="body1">
         Set timers to manage your tasks and send notifications.
       </Typography>
-      {timers.map((eachTimer) => (
+      {timers.map((timer) => (
         <TimerCard
-          key={eachTimer.id}
-          id={eachTimer.id}
-          title={eachTimer.title ?? `Timer ${eachTimer.id}`}
-          seconds={eachTimer.seconds}
-          isActive={eachTimer.isActive}
-          togglePlay={() => {}}
-          onRestart={() => {}}
-          onDelete={() => {}}
+          key={timer.id}
+          id={timer.id}
+          title={timer.title ?? `Timer ${timer.id}`}
+          initialSeconds={timer.initialSeconds}
+          currentSeconds={timer.currentSeconds}
+          isActive={timer.isActive}
+          togglePlay={togglePlay}
+          onRestart={handleRestart}
+          onDelete={handleDelete}
         />
       ))}
     </div>

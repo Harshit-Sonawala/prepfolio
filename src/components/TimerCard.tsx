@@ -21,6 +21,7 @@ type TimerCardProps = {
   isActive: boolean;
   togglePlay: (id: number) => void;
   onRestart: (id: number) => void;
+  onAddMinute: (id: number) => void;
   onDelete: (id: number) => void;
 };
 
@@ -88,6 +89,8 @@ const TimerCard = (props: TimerCardProps) => {
             className="flex-1"
             variant="contained"
             startIcon={<AddRounded />}
+            disabled={props.currentSeconds + 60 > props.initialSeconds}
+            onClick={() => props.onAddMinute(props.id)}
           >
             Add 1 Min
           </Button>

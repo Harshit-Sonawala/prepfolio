@@ -71,6 +71,17 @@ const Timers = () => {
     );
   };
 
+  // Add 1 min
+  const handleAddMinute = (id: number) => {
+    setTimers((prevTimers) =>
+      prevTimers.map((timer) =>
+        timer.id === id
+          ? { ...timer, currentSeconds: timer.currentSeconds + 60 }
+          : timer
+      )
+    );
+  };
+
   // Delete timer
   const handleDelete = (id: number) => {
     setTimers((prevTimers) => prevTimers.filter((timer) => timer.id !== id));
@@ -121,6 +132,7 @@ const Timers = () => {
           isActive={timer.isActive}
           togglePlay={togglePlay}
           onRestart={handleRestart}
+          onAddMinute={handleAddMinute}
           onDelete={handleDelete}
         />
       ))}

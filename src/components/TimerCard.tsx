@@ -12,6 +12,7 @@ import {
   CloseRounded,
   AddRounded,
 } from '@mui/icons-material';
+import { formatTime } from '../utils/formatTime';
 
 type TimerCardProps = {
   id: number;
@@ -63,7 +64,7 @@ const TimerCard = (props: TimerCardProps) => {
             />
             <div className="stack-child">
               <Typography variant="h1" color="white">
-                {props.currentSeconds}
+                {formatTime(props.currentSeconds)}
               </Typography>
             </div>
           </div>

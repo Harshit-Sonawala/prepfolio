@@ -73,7 +73,7 @@ const Tasks = () => {
         Manage your task checklists. Enter adds a new task.
       </Typography>
       <div className="card bgcolor-surface-top gap-sm">
-        {tasks.map((eachTask) => (
+        {tasks.map((eachTask: Task) => (
           <TaskCard
             key={eachTask.id}
             id={eachTask.id}

@@ -45,9 +45,7 @@ const TimerCard = (props: TimerCardProps) => {
   return (
     <div className="card bgcolor-surface-top gap-md">
       <div className="row justify-between">
-        <Typography variant="h3" color="secondaryColor2">
-          {props.title}
-        </Typography>
+        <Typography variant="h3">{props.title}</Typography>
         <IconButton onClick={() => props.onDelete(props.id)}>
           <CloseRounded />
         </IconButton>
@@ -63,7 +61,7 @@ const TimerCard = (props: TimerCardProps) => {
               },
             }}
             value={(props.currentSeconds / props.initialSeconds) * 100}
-            size={160}
+            size={140}
             thickness={2.5}
             color={props.currentSeconds > 0 ? 'primary' : 'error'}
           />

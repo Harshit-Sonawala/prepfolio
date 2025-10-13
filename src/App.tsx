@@ -25,7 +25,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <div className="root">
         <div className="main col gap-md align-stretch">
-          <div className="card bgcolor-surface pd-sm">
+          <div className="card bgcolor-surface">
             <div className="row justify-between">
               <Typography variant="h1">Prepfolio</Typography>
               <FormControlLabel

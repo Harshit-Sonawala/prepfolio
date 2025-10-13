@@ -115,7 +115,7 @@ const Timers = () => {
   // }, [timers, isFileLoaded]);
 
   return (
-    <div className="card bgcolor-surface gap-sm">
+    <div className="card bgcolor-surface gap-md">
       <Typography variant="h2" color="secondaryColor2">
         Timers
       </Typography>

@@ -73,14 +73,14 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
       fontFamily: 'TTNormsPro',
       fontSize: '1.8rem',
       fontWeight: 600,
-      color: mode === 'dark' ? '#0bddb0' : '#089d7e',
+      color: mode === 'dark' ? '#f4f4f4' : '#1d1d1d',
     },
     h3: {
       fontFamily: 'ProductSans',
       fontSize: '1.4rem',
-      fontWeight: 600,
-      letterSpacing: '0.1rem',
-      color: mode === 'dark' ? '#60daff' : '#0099cc',
+      // fontWeight: 600,
+      // letterSpacing: '0.1rem',
+      color: mode === 'dark' ? '#f4f4f4' : '#1d1d1d',
     },
   },
   components: {

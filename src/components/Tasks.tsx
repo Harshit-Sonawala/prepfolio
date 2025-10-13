@@ -64,10 +64,12 @@ const Tasks = () => {
   };
 
   return (
-    <div className="card bgcolor-surface gap-sm">
-      <Typography variant="h2">Tasks</Typography>
+    <div className="card bgcolor-surface gap-md">
+      <Typography variant="h2" color="secondary">
+        Tasks
+      </Typography>
       {/* <h2 className="color-sec-1">Tasks</h2> */}
-      <Typography variant="body1" gutterBottom>
+      <Typography variant="body1">
         Manage your task checklists. Enter adds a new task.
       </Typography>
       <div className="card bgcolor-surface-top gap-sm">

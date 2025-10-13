@@ -55,7 +55,13 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
     fontFamily: 'ProductSans',
     body1: {
       fontFamily: 'ProductSans',
+      fontSize: '1rem',
       color: mode === 'dark' ? '#f4f4f4' : '#1d1d1d',
+    },
+    body2: {
+      fontFamily: 'ProductSans',
+      fontSize: '1rem',
+      color: mode === 'dark' ? '#aaaaaa' : '#666666',
     },
     h1: {
       fontFamily: 'TTNormsPro',
@@ -70,7 +76,10 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
       color: mode === 'dark' ? '#0bddb0' : '#089d7e',
     },
     h3: {
-      fontSize: '1.5rem',
+      fontFamily: 'ProductSans',
+      fontSize: '1.4rem',
+      fontWeight: 600,
+      letterSpacing: '0.1rem',
       color: mode === 'dark' ? '#60daff' : '#0099cc',
     },
   },

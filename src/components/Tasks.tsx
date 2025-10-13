@@ -59,18 +59,18 @@ const Tasks = () => {
         completed: false,
       };
       setTasks([...tasks, newTask]);
-      setNewTaskTitle(''); // Clear input
+      setNewTaskTitle('');
     }
   };
 
   return (
-    <div className="card gap-sm">
+    <div className="card bgcolor-surface gap-sm">
       <Typography variant="h2">Tasks</Typography>
       {/* <h2 className="color-sec-1">Tasks</h2> */}
       <Typography variant="body1" gutterBottom>
         Manage your task checklists. Enter adds a new task.
       </Typography>
-      <div className="card-surface-top gap-sm">
+      <div className="card bgcolor-surface-top gap-sm">
         {tasks.map((eachTask) => (
           <TaskCard
             key={eachTask.id}
@@ -82,7 +82,7 @@ const Tasks = () => {
           />
         ))}
         <div className="task-card">
-          <div className="row nowrap">
+          <div className="row nowrap flex-1">
             <Checkbox checked={false} />
             <input
               type="text"

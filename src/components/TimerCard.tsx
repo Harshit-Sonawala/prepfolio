@@ -43,7 +43,7 @@ const TimerCard = (props: TimerCardProps) => {
   const buttonState = getButtonState();
 
   return (
-    <div className="timer-card gap-sm">
+    <div className="card bgcolor-surface-top gap-md">
       <div className="row justify-between">
         <Typography variant="h3" color="secondaryColor2">
           {props.title}
@@ -52,21 +52,29 @@ const TimerCard = (props: TimerCardProps) => {
           <CloseRounded />
         </IconButton>
       </div>
-      <div className="row justify-evenly">
-        <div className="bgcolor-surface-bright border-circular">
-          <div className="stack-parent">
-            <CircularProgress
-              variant="determinate"
-              value={(props.currentSeconds / props.initialSeconds) * 100}
-              size={120}
-              thickness={2.5}
-              color="primary"
-            />
-            <div className="stack-child">
-              <Typography variant="h1" color="white">
-                {formatTime(props.currentSeconds)}
-              </Typography>
-            </div>
+      <div className="row justify-evenly gap-md">
+        <div className="stack-parent bgcolor-surface-bright shape-circular pd-sm">
+          <CircularProgress
+            variant={props.currentSeconds > 0 ? 'determinate' : 'indeterminate'}
+            disableShrink={false}
+            sx={{
+              '& .MuiCircularProgress-circle': {
+                animationPlayState: props.isActive ? 'running' : 'paused',
+              },
+            }}
+            value={(props.currentSeconds / props.initialSeconds) * 100}
+            size={160}
+            thickness={2.5}
+            color={props.currentSeconds > 0 ? 'primary' : 'error'}
+          />
+          <div className="stack-child">
+            <Typography
+              variant={props.currentSeconds >= 3600 ? 'h2' : 'h1'}
+              color="white"
+              className="pd-lg"
+            >
+              {formatTime(props.currentSeconds)}
+            </Typography>
           </div>
         </div>
         <div className="col justify-evenly align-stretch gap-md">
@@ -90,7 +98,9 @@ const TimerCard = (props: TimerCardProps) => {
             className="flex-1"
             variant="contained"
             startIcon={<AddRounded />}
-            disabled={props.currentSeconds + 60 > props.initialSeconds}
+            disabled={
+              Math.abs(props.currentSeconds) + 60 > props.initialSeconds
+            }
             onClick={() => props.onAddMinute(props.id)}
           >
             Add 1 Min

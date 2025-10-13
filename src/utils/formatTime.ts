@@ -17,8 +17,8 @@ export const formatTime = (totalSeconds: number): string => {
     // MM:SS format, seconds could be 00
     formatted = `${minutes}:${String(seconds).padStart(2, '0')}`;
   } else {
-    // Just seconds with an s suffix
-    formatted = `${seconds}s`;
+    // Just seconds
+    formatted = `${seconds}`;
   }
 
   // Negative/Overtime logic

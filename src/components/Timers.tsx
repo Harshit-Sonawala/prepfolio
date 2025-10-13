@@ -17,15 +17,15 @@ const Timers = () => {
     {
       id: 1,
       title: 'Timer 2',
-      initialSeconds: 2700,
-      currentSeconds: 2700,
+      initialSeconds: 15,
+      currentSeconds: 15,
       isActive: false,
     },
     {
       id: 2,
       title: 'Timer 3',
-      initialSeconds: 240,
-      currentSeconds: 240,
+      initialSeconds: 7234,
+      currentSeconds: 7234,
       isActive: false,
     },
   ]);
@@ -115,7 +115,7 @@ const Timers = () => {
   // }, [timers, isFileLoaded]);
 
   return (
-    <div className="card gap-sm">
+    <div className="card bgcolor-surface gap-sm">
       <Typography variant="h2" color="secondaryColor2">
         Timers
       </Typography>

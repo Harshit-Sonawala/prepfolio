@@ -54,6 +54,9 @@
 .color-sec-3 {
   color: var(--secondary-color3);
 }
+.bgcolor-surface {
+  background-color: var(--surface-color);
+}
 .bgcolor-surface-top {
   background-color: var(--surface-top-color);
 }
@@ -99,7 +102,7 @@ body {
 }
 
 /* Layouts */
-.border-circular {
+.shape-circular {
   border-radius: 50%;
 }
 
@@ -233,37 +236,12 @@ input[type="checkbox"] {
 
 /* Specifics */
 .card {
-  flex: 1;
   display: flex;
   flex-flow: column;
   justify-content: stretch;
   align-items: stretch;
   padding: 1rem;
-  background-color: var(--surface-color);
-  border-radius: 10px;
-}
-
-.card-surface-top {
-  padding: 0.2rem;
-  margin-bottom: 0.5rem;
-  background-color: var(--surface-top-color);
-  border-radius: 10px;
-}
-
-.task-card {
-  flex: 1;
-  display: flex;
-  /* background-color: var(--surface-top-color); */
-  background-color: transparent;
-  border-radius: 8px;
-}
-
-.timer-card {
-  display: flex;
-  flex-flow: column nowrap;
-  padding: 1rem;
-  margin-bottom: 0.5rem;
-  background-color: var(--surface-top-color);
+  /* background-color: var(--surface-color); */
   border-radius: 10px;
 }
 

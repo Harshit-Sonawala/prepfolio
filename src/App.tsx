@@ -4,7 +4,12 @@ import './App.css';
 import Tasks from './components/Tasks';
 import Timers from './components/Timers';
 import Clipboard from './components/Clipboard';
-import { ThemeProvider, FormControlLabel, Switch } from '@mui/material';
+import {
+  ThemeProvider,
+  Typography,
+  FormControlLabel,
+  Switch,
+} from '@mui/material';
 import { darkTheme, lightTheme } from './globalMuiTheme.ts';
 
 function App() {
@@ -19,21 +24,20 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <div className="root">
-        <div className="main column gap-md align-stretch">
-          <div className="row justify-between">
-            <div className="pd-x-md">
-              <h1 className="pd-sm">Prepfolio</h1>
+        <div className="main col gap-md align-stretch">
+          <div className="card bgcolor-surface pd-sm">
+            <div className="row justify-between">
+              <Typography variant="h1">Prepfolio</Typography>
+              <FormControlLabel
+                control={<Switch defaultChecked />}
+                label="Theme: Dark"
+              />
             </div>
-            <FormControlLabel
-              control={<Switch defaultChecked />}
-              label="Dark Theme"
-            />
           </div>
-
-          <div className="row flex-1 gap-md justify-stretch align-stretch">
+          <div className="row flex-1 gap-md align-stretch">
             <Tasks />
             <Timers />
-            {/* <Clipboard /> */}
+            <Clipboard />
           </div>
         </div>
       </div>

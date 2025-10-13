@@ -20,7 +20,9 @@ const TaskCard = (props: TaskCardProps) => {
             onChange={() => props.onToggle(props.id)}
             color="secondary"
           />
-          <Typography variant="body1">{props.title}</Typography>
+          <Typography variant={props.completed ? 'body2' : 'body1'}>
+            {props.title}
+          </Typography>
         </div>
         <IconButton onClick={() => props.onDelete(props.id)}>
           <CloseRounded />

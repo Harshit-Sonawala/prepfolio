@@ -9,7 +9,7 @@ const Clipboard = () => {
   ]);
   return (
     <div className="card bgcolor-surface gap-md">
-      <Typography variant="h2" color="secondaryColor3">
+      <Typography variant="h2" color="secondary3">
         Clipboard
       </Typography>
       <Typography variant="body1">

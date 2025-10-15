@@ -5,14 +5,16 @@ declare module '@mui/material/styles' {
   interface Palette {
     surfaceTop: string;
     surfaceBright: string;
-    secondaryColor2: string;
-    secondaryColor3: string;
+    primary2: string;
+    secondary2: string;
+    secondary3: string;
   }
   interface PaletteOptions {
     surfaceTop?: string;
     surfaceBright?: string;
-    secondaryColor2?: string;
-    secondaryColor3?: string;
+    primary2?: string;
+    secondary2?: string;
+    secondary3?: string;
   }
 }
 
@@ -45,8 +47,9 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
     // Custom colors
     surfaceTop: mode === 'dark' ? '#2d2d2d' : '#fafafa',
     surfaceBright: mode === 'dark' ? '#3d3d3d' : '#e8e8e8',
-    secondaryColor2: '#7e83e6',
-    secondaryColor3: '#e1d550',
+    primary2: '#004d80',
+    secondary2: '#7e83e6',
+    secondary3: '#e1d550',
   },
   shape: {
     borderRadius: 8,
@@ -102,7 +105,17 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
         root: {
           borderRadius: 20, // completely rounded pill
           textTransform: 'none', // no all caps
+          // fontWeight: 600,
+          fontFamily: 'Inter',
         },
+        containedPrimary: ({ theme }) => ({
+          backgroundColor: theme.palette.primary2,
+          color: theme.palette.primary.main,
+          '&:hover': {
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.primary2,
+          },
+        }),
       },
     },
     MuiCheckbox: {

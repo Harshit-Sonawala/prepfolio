@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Timer } from '../models/Timer';
-import { Typography } from '@mui/material';
+import { Typography, Button } from '@mui/material';
+import { AddRounded } from '@mui/icons-material';
 import { load } from '@tauri-apps/plugin-store';
 
 import TimerCard from './TimerCard';
@@ -116,7 +117,7 @@ const Timers = () => {
 
   return (
     <div className="card bgcolor-surface gap-md">
-      <Typography variant="h2" color="secondaryColor2">
+      <Typography variant="h2" color="secondary2">
         Timers
       </Typography>
       <Typography variant="body1">
@@ -136,6 +137,17 @@ const Timers = () => {
           onDelete={handleDelete}
         />
       ))}
+      <Button
+        className="flex-1"
+        variant="contained"
+        startIcon={<AddRounded />}
+        onClick={() => {}}
+        sx={{
+          maxHeight: '2.5rem',
+        }}
+      >
+        Add New Timer
+      </Button>
     </div>
   );
 };

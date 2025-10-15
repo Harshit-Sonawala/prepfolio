@@ -155,6 +155,17 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
         },
       },
     },
+    MuiFilledInput: {
+      defaultProps: {
+        disableUnderline: true,
+      },
+      styleOverrides: {
+        root: {
+          border: 'none',
+          borderRadius: '10px',
+        },
+      },
+    },
   },
 });
 

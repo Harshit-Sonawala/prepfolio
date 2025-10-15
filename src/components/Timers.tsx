@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Timer } from '../models/Timer';
-import { Typography, Button } from '@mui/material';
+import { Typography, Button, TextField } from '@mui/material';
 import { AddRounded } from '@mui/icons-material';
 import { load } from '@tauri-apps/plugin-store';
 
@@ -10,21 +10,21 @@ const Timers = () => {
   const [timers, setTimers] = useState<Timer[]>([
     {
       id: 0,
-      title: 'Timer 1',
+      title: 'Pomo',
       initialSeconds: 120,
       currentSeconds: 120,
       isActive: false,
     },
     {
       id: 1,
-      title: 'Timer 2',
+      title: 'Doro',
       initialSeconds: 15,
       currentSeconds: 15,
       isActive: false,
     },
     {
       id: 2,
-      title: 'Timer 3',
+      title: '2 Hr Timer',
       initialSeconds: 7234,
       currentSeconds: 7234,
       isActive: false,
@@ -137,18 +137,63 @@ const Timers = () => {
           onDelete={handleDelete}
         />
       ))}
-      <Button
-        className="flex-1"
-        variant="contained"
-        startIcon={<AddRounded />}
-        onClick={() => {}}
-        sx={{
-          maxHeight: '4rem',
-          borderRadius: '10px',
-        }}
-      >
-        Add New Timer
-      </Button>
+      <div className="card bgcolor-surface-top gap-sm">
+        <TextField
+          id="newTimerTitle"
+          type="text"
+          variant="filled"
+          label={'New Timer Title'}
+        />
+        <div className="row justify-center">
+          <TextField
+            id="newTimerHH"
+            type="number"
+            variant="filled"
+            label={'HH'}
+            sx={{ maxWidth: '6rem' }}
+            slotProps={{
+              htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 99 },
+            }}
+          />
+          <Typography variant="h1" color="textPrimary" className="pd-lg">
+            :
+          </Typography>
+          <TextField
+            id="newTimerMM"
+            type="number"
+            variant="filled"
+            label={'MM'}
+            sx={{ maxWidth: '6rem' }}
+            slotProps={{
+              htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 59 },
+            }}
+          />
+          <Typography variant="h1" color="textPrimary" className="pd-lg">
+            :
+          </Typography>
+          <TextField
+            id="newTimerSS"
+            type="number"
+            variant="filled"
+            label={'SS'}
+            sx={{ maxWidth: '6rem' }}
+            slotProps={{
+              htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 59 },
+            }}
+          />
+        </div>
+        <Button
+          variant="contained"
+          startIcon={<AddRounded />}
+          onClick={() => {}}
+          sx={{
+            height: '3rem',
+            borderRadius: '10px',
+          }}
+        >
+          Add New Timer
+        </Button>
+      </div>
     </div>
   );
 };

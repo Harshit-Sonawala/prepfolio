@@ -1,7 +1,13 @@
-# Tauri + React + Typescript
+# Prepfolio
+A productivity desktop app with several quick and useful utilities used by me daily.
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+### Tech
+- Tauri
+- TypeScript
+- React
+- Custom CSS styling
+- MaterialUI Components
 
-## Recommended IDE Setup
+### Screenshots
+<img src="screenshots/screenshot1.jpg" alt="screenshot1" width="600">
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)

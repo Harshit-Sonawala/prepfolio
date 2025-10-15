@@ -143,7 +143,8 @@ const Timers = () => {
         startIcon={<AddRounded />}
         onClick={() => {}}
         sx={{
-          maxHeight: '2.5rem',
+          maxHeight: '4rem',
+          borderRadius: '10px',
         }}
       >
         Add New Timer

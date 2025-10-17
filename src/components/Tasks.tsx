@@ -68,7 +68,6 @@ const Tasks = () => {
       <Typography variant="h2" color="secondary">
         Tasks
       </Typography>
-      {/* <h2 className="color-sec-1">Tasks</h2> */}
       <Typography variant="body1">
         Manage your task checklists. Enter adds a new task.
       </Typography>

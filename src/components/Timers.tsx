@@ -108,32 +108,32 @@ const Timers = () => {
     setNewTimerSS(0);
   };
 
-  // // load timers from file on mount
-  // useEffect(() => {
-  //   const loadTimers = async () => {
-  //     const fileStore = await load('timers.json');
-  //     const allTimers = await fileStore.get<Timer[]>('allTimers');
-  //     if (allTimers) {
-  //       setTimers(allTimers);
-  //     }
-  //     setIsFileLoaded(true); // mark file loaded
-  //     console.log('Loaded Timers');
-  //   };
-  //   loadTimers();
-  // }, []);
+  // load timers from file on mount
+  useEffect(() => {
+    const loadTimers = async () => {
+      const fileStore = await load('timers.json');
+      const allTimers = await fileStore.get<Timer[]>('allTimers');
+      if (allTimers) {
+        setTimers(allTimers);
+      }
+      setIsFileLoaded(true); // mark file loaded
+      console.log('Loaded Timers');
+    };
+    loadTimers();
+  }, []);
 
-  // // save timers when changed and onl after isFileLoaded
-  // useEffect(() => {
-  //   if (!isFileLoaded) return;
+  // save timers when changed and only after isFileLoaded
+  useEffect(() => {
+    if (!isFileLoaded) return;
 
-  //   const saveTimers = async () => {
-  //     const fileStore = await load('timers.json');
-  //     await fileStore.set('allTimers', timers);
-  //     await fileStore.save();
-  //     console.log('Saved Timers');
-  //   };
-  //   saveTimers();
-  // }, [timers, isFileLoaded]);
+    const saveTimers = async () => {
+      const fileStore = await load('timers.json');
+      await fileStore.set('allTimers', timers);
+      await fileStore.save();
+      console.log('Saved Timers');
+    };
+    saveTimers();
+  }, [timers, isFileLoaded]);
 
   return (
     <div className="card bgcolor-surface gap-md">
@@ -157,7 +157,7 @@ const Timers = () => {
           onDelete={handleDelete}
         />
       ))}
-      <div className="card bgcolor-surface-top gap-sm">
+      <div className="card bgcolor-surface-top">
         <TextField
           type="text"
           variant="filled"
@@ -219,7 +219,7 @@ const Timers = () => {
             borderRadius: '10px',
           }}
         >
-          Add New Timer
+          Set New Timer
         </Button>
       </div>
     </div>

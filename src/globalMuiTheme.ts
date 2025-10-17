@@ -103,6 +103,7 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
       },
       styleOverrides: {
         root: {
+          margin: 0,
           borderRadius: 20, // completely rounded pill
           textTransform: 'none', // no all caps
           // fontWeight: 600,
@@ -129,6 +130,7 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
       styleOverrides: {
         root: {
           padding: 8,
+          margin: 0,
         },
         track: {
           borderRadius: 22 / 2,
@@ -163,6 +165,7 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
         root: {
           border: 'none',
           borderRadius: '10px',
+          margin: 0,
         },
       },
     },

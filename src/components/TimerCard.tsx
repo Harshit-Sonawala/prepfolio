@@ -90,6 +90,7 @@ const TimerCard = (props: TimerCardProps) => {
             className="flex-1"
             variant="contained"
             startIcon={<ReplayRounded />}
+            disabled={props.currentSeconds === props.initialSeconds}
             onClick={() => props.onRestart(props.id)}
           >
             Restart

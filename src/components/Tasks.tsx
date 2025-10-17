@@ -51,10 +51,10 @@ const Tasks = () => {
     setTasks(tasks.filter((eachTask) => eachTask.id !== taskId));
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const addNewTask = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && newTaskTitle.trim() !== '') {
       const newTask: Task = {
-        id: Date.now() % 100000, // Convert timestamp to 5digit id
+        id: Date.now(),
         title: newTaskTitle,
         completed: false,
       };
@@ -93,7 +93,7 @@ const Tasks = () => {
               placeholder="New Task..."
               value={newTaskTitle}
               onChange={(e) => setNewTaskTitle(e.target.value)}
-              onKeyDown={handleKeyDown}
+              onKeyDown={addNewTask}
             />
           </div>
         </div>

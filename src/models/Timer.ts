@@ -1,6 +1,6 @@
 export interface Timer {
   id: number;
-  title?: string;
+  title: string;
   initialSeconds: number;
   currentSeconds: number;
   isActive: boolean;

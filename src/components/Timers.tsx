@@ -3,34 +3,31 @@ import { Timer } from '../models/Timer';
 import { Typography, Button, TextField } from '@mui/material';
 import { AddRounded } from '@mui/icons-material';
 import { load } from '@tauri-apps/plugin-store';
+import { formatTime } from '../utils/formatTime';
 
 import TimerCard from './TimerCard';
 
 const Timers = () => {
   const [timers, setTimers] = useState<Timer[]>([
-    {
-      id: 0,
-      title: 'Pomo',
-      initialSeconds: 120,
-      currentSeconds: 120,
-      isActive: false,
-    },
-    {
-      id: 1,
-      title: 'Doro',
-      initialSeconds: 15,
-      currentSeconds: 15,
-      isActive: false,
-    },
-    {
-      id: 2,
-      title: '2 Hr Timer',
-      initialSeconds: 7234,
-      currentSeconds: 7234,
-      isActive: false,
-    },
+    // {
+    //   id: 0,
+    //   title: 'Pomo',
+    //   initialSeconds: 2700,
+    //   currentSeconds: 2700,
+    //   isActive: false,
+    // },
+    // {
+    //   id: 1,
+    //   title: 'Doro',
+    //   initialSeconds: 900,
+    //   currentSeconds: 900,
+    //   isActive: false,
+    // },
   ]);
   const [newTimerTitle, setNewTimerTitle] = useState<string>('');
+  const [newTimerHH, setNewTimerHH] = useState<number>(0);
+  const [newTimerMM, setNewTimerMM] = useState<number>(0);
+  const [newTimerSS, setNewTimerSS] = useState<number>(0);
   const [isFileLoaded, setIsFileLoaded] = useState<boolean>(false);
 
   // countdown logic runs every second and updates all active timers
@@ -47,12 +44,12 @@ const Timers = () => {
           return timer;
         })
       );
-    }, 1000);
+    }, 1000); // 1000ms = 1s
 
     return () => clearInterval(interval);
   }, []);
 
-  // Toggle play/pause for a timer
+  // toggle play/pause for a timer
   const togglePlay = (id: number) => {
     setTimers((prevTimers) =>
       prevTimers.map((timer) =>
@@ -61,7 +58,7 @@ const Timers = () => {
     );
   };
 
-  // Restart timer to initial time
+  // restart timer to initial time
   const handleRestart = (id: number) => {
     setTimers((prevTimers) =>
       prevTimers.map((timer) =>
@@ -72,7 +69,7 @@ const Timers = () => {
     );
   };
 
-  // Add 1 min
+  // add 1 min
   const handleAddMinute = (id: number) => {
     setTimers((prevTimers) =>
       prevTimers.map((timer) =>
@@ -83,9 +80,32 @@ const Timers = () => {
     );
   };
 
-  // Delete timer
+  // delete timer
   const handleDelete = (id: number) => {
     setTimers((prevTimers) => prevTimers.filter((timer) => timer.id !== id));
+  };
+
+  // add a new timer through textfields
+  const addNewTimer = () => {
+    const timestamp = Date.now();
+    const trimmedNewTitle = newTimerTitle.trim();
+    const HH = Number.isNaN(newTimerHH) ? 0 : newTimerHH;
+    const MM = Number.isNaN(newTimerMM) ? 0 : newTimerMM;
+    const SS = Number.isNaN(newTimerSS) ? 0 : newTimerSS;
+    const totalSeconds = HH * 3600 + MM * 60 + SS;
+    const newTimer: Timer = {
+      id: timestamp,
+      title:
+        trimmedNewTitle !== '' ? trimmedNewTitle : `${HH}:${MM}:${SS} Timer`,
+      initialSeconds: totalSeconds,
+      currentSeconds: totalSeconds,
+      isActive: false,
+    };
+    setTimers([...timers, newTimer]);
+    setNewTimerTitle('');
+    setNewTimerHH(0);
+    setNewTimerMM(0);
+    setNewTimerSS(0);
   };
 
   // // load timers from file on mount
@@ -139,17 +159,21 @@ const Timers = () => {
       ))}
       <div className="card bgcolor-surface-top gap-sm">
         <TextField
-          id="newTimerTitle"
           type="text"
           variant="filled"
+          name="newTimerTitle"
           label={'New Timer Title'}
+          value={newTimerTitle}
+          onChange={(e) => setNewTimerTitle(e.target.value)}
         />
         <div className="row justify-center">
           <TextField
-            id="newTimerHH"
-            type="number"
+            type="text"
             variant="filled"
+            name="newTimerHH"
             label={'HH'}
+            value={newTimerHH}
+            onChange={(e) => setNewTimerHH(Number(e.target.value))}
             sx={{ maxWidth: '6rem' }}
             slotProps={{
               htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 99 },
@@ -159,10 +183,12 @@ const Timers = () => {
             :
           </Typography>
           <TextField
-            id="newTimerMM"
-            type="number"
+            type="text"
             variant="filled"
+            name="newTimerMM"
             label={'MM'}
+            value={newTimerMM}
+            onChange={(e) => setNewTimerMM(Number(e.target.value))}
             sx={{ maxWidth: '6rem' }}
             slotProps={{
               htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 59 },
@@ -172,10 +198,12 @@ const Timers = () => {
             :
           </Typography>
           <TextField
-            id="newTimerSS"
-            type="number"
+            type="text"
             variant="filled"
+            name="newTimerSS"
             label={'SS'}
+            value={newTimerSS}
+            onChange={(e) => setNewTimerSS(Number(e.target.value))}
             sx={{ maxWidth: '6rem' }}
             slotProps={{
               htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 59 },
@@ -185,7 +213,7 @@ const Timers = () => {
         <Button
           variant="contained"
           startIcon={<AddRounded />}
-          onClick={() => {}}
+          onClick={addNewTimer}
           sx={{
             height: '3rem',
             borderRadius: '10px',

@@ -8,22 +8,7 @@ import { formatTime } from '../utils/formatTime';
 import TimerCard from './TimerCard';
 
 const Timers = () => {
-  const [timers, setTimers] = useState<Timer[]>([
-    // {
-    //   id: 0,
-    //   title: 'Pomo',
-    //   initialSeconds: 2700,
-    //   currentSeconds: 2700,
-    //   isActive: false,
-    // },
-    // {
-    //   id: 1,
-    //   title: 'Doro',
-    //   initialSeconds: 900,
-    //   currentSeconds: 900,
-    //   isActive: false,
-    // },
-  ]);
+  const [timers, setTimers] = useState<Timer[]>([]);
   const [newTimerTitle, setNewTimerTitle] = useState<string>('');
   const [newTimerHH, setNewTimerHH] = useState<number>(0);
   const [newTimerMM, setNewTimerMM] = useState<number>(0);
@@ -168,13 +153,18 @@ const Timers = () => {
         />
         <div className="row justify-center">
           <TextField
-            type="text"
+            type="number"
             variant="filled"
             name="newTimerHH"
             label={'HH'}
             value={newTimerHH}
-            onChange={(e) => setNewTimerHH(Number(e.target.value))}
-            sx={{ maxWidth: '6rem' }}
+            onChange={(e) => {
+              const val = e.target.value;
+              if (Number(val) >= 0 && Number(val) <= 99 && val.length <= 2) {
+                setNewTimerHH(Number(e.target.value));
+              }
+            }}
+            sx={{ width: '6rem' }}
             slotProps={{
               htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 99 },
             }}
@@ -183,13 +173,18 @@ const Timers = () => {
             :
           </Typography>
           <TextField
-            type="text"
+            type="number"
             variant="filled"
             name="newTimerMM"
             label={'MM'}
             value={newTimerMM}
-            onChange={(e) => setNewTimerMM(Number(e.target.value))}
-            sx={{ maxWidth: '6rem' }}
+            onChange={(e) => {
+              const val = e.target.value;
+              if (Number(val) >= 0 && Number(val) <= 59 && val.length <= 2) {
+                setNewTimerMM(Number(e.target.value));
+              }
+            }}
+            sx={{ width: '6rem' }}
             slotProps={{
               htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 59 },
             }}
@@ -198,13 +193,18 @@ const Timers = () => {
             :
           </Typography>
           <TextField
-            type="text"
+            type="number"
             variant="filled"
             name="newTimerSS"
             label={'SS'}
             value={newTimerSS}
-            onChange={(e) => setNewTimerSS(Number(e.target.value))}
-            sx={{ maxWidth: '6rem' }}
+            onChange={(e) => {
+              const val = e.target.value;
+              if (Number(val) >= 0 && Number(val) <= 59 && val.length <= 2) {
+                setNewTimerSS(Number(e.target.value));
+              }
+            }}
+            sx={{ width: '6rem' }}
             slotProps={{
               htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 59 },
             }}
@@ -213,6 +213,7 @@ const Timers = () => {
         <Button
           variant="contained"
           startIcon={<AddRounded />}
+          disabled={newTimerHH === 0 && newTimerMM === 0 && newTimerSS === 0}
           onClick={addNewTimer}
           sx={{
             height: '3rem',

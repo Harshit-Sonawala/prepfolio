@@ -1,15 +1,11 @@
 // import { useState } from "react";
 // import { invoke } from "@tauri-apps/api/core";
 import './App.css';
+import TopBar from './components/TopBar';
 import Tasks from './components/Tasks';
 import Timers from './components/Timers';
 import Clipboard from './components/Clipboard';
-import {
-  ThemeProvider,
-  Typography,
-  FormControlLabel,
-  Switch,
-} from '@mui/material';
+import { ThemeProvider } from '@mui/material';
 import { darkTheme, lightTheme } from './globalMuiTheme.ts';
 
 function App() {
@@ -25,15 +21,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <div className="root">
         <div className="main col gap-md align-stretch">
-          <div className="card bgcolor-surface">
-            <div className="row justify-between">
-              <Typography variant="h1">Prepfolio</Typography>
-              <FormControlLabel
-                control={<Switch defaultChecked />}
-                label="Theme: Dark"
-              />
-            </div>
-          </div>
+          <TopBar />
           <div className="row flex-1 gap-md align-stretch">
             <Tasks />
             <Timers />

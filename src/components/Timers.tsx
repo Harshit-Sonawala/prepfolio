@@ -3,11 +3,10 @@ import { Timer } from '../models/Timer';
 import { Typography, Button, TextField } from '@mui/material';
 import { AddRounded } from '@mui/icons-material';
 import { load } from '@tauri-apps/plugin-store';
-import { formatTime } from '../utils/formatTime';
 
 import TimerCard from './TimerCard';
 
-const Timers = () => {
+function Timers() {
   const [timers, setTimers] = useState<Timer[]>([]);
   const [newTimerTitle, setNewTimerTitle] = useState<string>('');
   const [newTimerHH, setNewTimerHH] = useState<number>(0);
@@ -225,6 +224,6 @@ const Timers = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Timers;

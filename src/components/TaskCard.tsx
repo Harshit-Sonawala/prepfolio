@@ -10,7 +10,7 @@ type TaskCardProps = {
   onDelete: (id: number) => void;
 };
 
-const TaskCard = (props: TaskCardProps) => {
+function TaskCard(props: TaskCardProps) {
   return (
     <div className="task-card">
       <div className="row nowrap flex-1 justify-between">
@@ -30,6 +30,6 @@ const TaskCard = (props: TaskCardProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default TaskCard;

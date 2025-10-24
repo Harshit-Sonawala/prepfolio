@@ -5,7 +5,7 @@ import { load } from '@tauri-apps/plugin-store';
 import TaskCard from './TaskCard';
 import { Typography, Checkbox } from '@mui/material';
 
-const Tasks = () => {
+function Tasks() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState<string>('');
   const [isFileLoaded, setIsFileLoaded] = useState<boolean>(false);
@@ -99,6 +99,6 @@ const Tasks = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Tasks;

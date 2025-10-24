@@ -26,7 +26,7 @@ type TimerCardProps = {
   onDelete: (id: number) => void;
 };
 
-const TimerCard = (props: TimerCardProps) => {
+function TimerCard(props: TimerCardProps) {
   // Determine button state based on timer conditions
   const getButtonState = () => {
     if (props.isActive && props.currentSeconds >= 0) {
@@ -110,6 +110,6 @@ const TimerCard = (props: TimerCardProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default TimerCard;

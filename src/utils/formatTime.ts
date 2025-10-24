@@ -1,4 +1,5 @@
-export const formatTime = (totalSeconds: number): string => {
+// Convert timer seconds into selective format from HH:MM:SS
+export function formatTime(totalSeconds: number): string {
   const isNegative = totalSeconds < 0;
   const absSeconds = Math.abs(totalSeconds);
 
@@ -23,4 +24,4 @@ export const formatTime = (totalSeconds: number): string => {
 
   // Negative/Overtime logic
   return isNegative ? `-${formatted}` : formatted;
-};
+}

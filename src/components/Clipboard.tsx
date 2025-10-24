@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Typography } from '@mui/material';
 
-const Clipboard = () => {
+function Clipboard() {
   const [clipboard, setClipboard] = useState<string[]>([
     'https://hss-portfolio-flax.vercel.app/',
     'https://mui.com/material-ui/material-icons/',
@@ -22,6 +22,6 @@ const Clipboard = () => {
       ))}
     </div>
   );
-};
+}
 
 export default Clipboard;

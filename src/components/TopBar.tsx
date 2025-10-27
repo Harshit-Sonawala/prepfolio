@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Typography, FormControlLabel, Switch } from '@mui/material';
 
-function TopBar() {
+type TopBarProps = {
+  isDarkMode: boolean;
+  onThemeToggle: (checked: boolean) => void;
+};
+
+function TopBar(props: TopBarProps) {
   const [currentDateTime, setCurrentDateTime] = useState<Date>(new Date());
 
   // Update time every second
@@ -30,7 +35,13 @@ function TopBar() {
         <Typography variant="h1">Prepfolio</Typography>
         <Typography variant="h3">{formattedDateTime}</Typography>
         <FormControlLabel
-          control={<Switch defaultChecked />}
+          control={
+            <Switch
+              defaultChecked
+              checked={props.isDarkMode}
+              onChange={(e) => props.onThemeToggle(e.target.checked)}
+            />
+          }
           label="Theme: Dark"
         />
       </div>

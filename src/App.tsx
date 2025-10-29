@@ -13,9 +13,9 @@ function App() {
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <div className="root">
-        <div className="main col gap-md align-stretch">
+        <div className="pd-md col flex-1 align-stretch gap-md">
           <TopBar isDarkMode={isDarkMode} onThemeToggle={setIsDarkMode} />
-          <div className="row flex-1 gap-md align-stretch">
+          <div className="row flex-1 justify-between align-stretch gap-md">
             <Tasks />
             <Timers />
             <Clipboard />

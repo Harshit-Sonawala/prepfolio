@@ -12,22 +12,20 @@ type TaskCardProps = {
 
 function TaskCard(props: TaskCardProps) {
   return (
-    <div className="task-card">
-      <div className="row nowrap flex-1 justify-between">
-        <div className="row nowrap">
-          <Checkbox
-            checked={props.completed}
-            onChange={() => props.onToggle(props.id)}
-            color="secondary"
-          />
-          <Typography variant={props.completed ? 'body2' : 'body1'}>
-            {props.title}
-          </Typography>
-        </div>
-        <IconButton onClick={() => props.onDelete(props.id)}>
-          <CloseRounded />
-        </IconButton>
+    <div className="row nowrap flex-1 justify-between">
+      <div className="row nowrap">
+        <Checkbox
+          checked={props.completed}
+          onChange={() => props.onToggle(props.id)}
+          color="secondary"
+        />
+        <Typography variant={props.completed ? 'body2' : 'body1'}>
+          {props.title}
+        </Typography>
       </div>
+      <IconButton onClick={() => props.onDelete(props.id)}>
+        <CloseRounded />
+      </IconButton>
     </div>
   );
 }

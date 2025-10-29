@@ -3,7 +3,7 @@ import { Task } from '../models/Task';
 import { load } from '@tauri-apps/plugin-store';
 
 import TaskCard from './TaskCard';
-import { Typography, Checkbox } from '@mui/material';
+import { Card, Typography, Checkbox } from '@mui/material';
 
 function Tasks() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -64,14 +64,17 @@ function Tasks() {
   };
 
   return (
-    <div className="card bgcolor-surface gap-md">
+    <Card className="gap-md pd-lg">
       <Typography variant="h2" color="secondary">
         Tasks
       </Typography>
       <Typography variant="body1">
         Manage your task checklists. Enter adds a new task.
       </Typography>
-      <div className="card bgcolor-surface-top gap-sm">
+      <Card sx={{ bgcolor: 'surfaceTop' }}>
+        {
+          // make this Card look like <div className="card bgcolor-surface-top gap-md"></div>
+        }
         {tasks.map((eachTask: Task) => (
           <TaskCard
             key={eachTask.id}
@@ -82,22 +85,20 @@ function Tasks() {
             onDelete={deleteTask}
           />
         ))}
-        <div className="task-card">
-          <div className="row nowrap flex-1">
-            <Checkbox checked={false} />
-            <input
-              type="text"
-              name="newTaskTitle"
-              className="inline-input"
-              placeholder="New Task..."
-              value={newTaskTitle}
-              onChange={(e) => setNewTaskTitle(e.target.value)}
-              onKeyDown={addNewTask}
-            />
-          </div>
+        <div className="row nowrap flex-1">
+          <Checkbox checked={false} />
+          <input
+            type="text"
+            name="newTaskTitle"
+            className="inline-input"
+            placeholder="New Task..."
+            value={newTaskTitle}
+            onChange={(e) => setNewTaskTitle(e.target.value)}
+            onKeyDown={addNewTask}
+          />
         </div>
-      </div>
-    </div>
+      </Card>
+    </Card>
   );
 }
 

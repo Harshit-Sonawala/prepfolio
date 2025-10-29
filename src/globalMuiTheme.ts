@@ -97,6 +97,17 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
         }),
       },
     },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          display: 'flex',
+          flexFlow: 'column',
+          justifyContent: 'stretch',
+          alignItems: 'stretch',
+          padding: '1rem',
+        },
+      },
+    },
     MuiButton: {
       defaultProps: {
         disableElevation: true,
@@ -106,7 +117,6 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
           margin: 0,
           borderRadius: 20, // completely rounded pill
           textTransform: 'none', // no all caps
-          // fontWeight: 600,
           fontFamily: 'Inter',
         },
         containedPrimary: ({ theme }) => ({

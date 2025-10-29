@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Typography, FormControlLabel, Switch } from '@mui/material';
+import { Card, Typography, FormControlLabel, Switch } from '@mui/material';
 
 type TopBarProps = {
   isDarkMode: boolean;
@@ -30,22 +30,31 @@ function TopBar(props: TopBarProps) {
   });
 
   return (
-    <div className="card bgcolor-surface">
-      <div className="row justify-between">
-        <Typography variant="h1">Prepfolio</Typography>
-        <Typography variant="h3">{formattedDateTime}</Typography>
-        <FormControlLabel
-          control={
-            <Switch
-              defaultChecked
-              checked={props.isDarkMode}
-              onChange={(e) => props.onThemeToggle(e.target.checked)}
-            />
-          }
-          label="Theme: Dark"
-        />
-      </div>
-    </div>
+    <Card
+      className="row justify-between align-center gap-md"
+      sx={{
+        flexDirection: 'row',
+        justifyItems: 'space-between',
+        alignItems: 'center',
+        gap: '1rem',
+      }}
+    >
+      <Typography variant="h1" className="pd-md">
+        Prepfolio
+      </Typography>
+      <Typography variant="h3">{formattedDateTime}</Typography>
+      <FormControlLabel
+        control={
+          <Switch
+            defaultChecked
+            checked={props.isDarkMode}
+            onChange={(e) => props.onThemeToggle(e.target.checked)}
+          />
+        }
+        label="Theme: Dark"
+      />
+    </Card>
+    // </div>
   );
 }
 

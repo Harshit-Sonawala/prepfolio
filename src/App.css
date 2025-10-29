@@ -73,7 +73,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  /* border: 1px dotted var(--onsurface-color); */
+  border: 1px dotted var(--onsurface-color);
   outline: none;
   font-family: "ProductSans";
   letter-spacing: 0.02em;
@@ -91,6 +91,7 @@ input::-webkit-inner-spin-button {
 }
 /* Remove input type="number" Buttons - Firefox */
 input[type=number] {
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 
@@ -105,11 +106,6 @@ body {
 .root {
   height: 100vh;
   display: flex;
-}
-
-.main {
-  flex: 1;
-  padding: 0.5rem;
 }
 
 /* Layouts */

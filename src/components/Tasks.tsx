@@ -64,17 +64,14 @@ function Tasks() {
   };
 
   return (
-    <Card className="gap-md pd-lg">
+    <Card className="flex-1 gap-md">
       <Typography variant="h2" color="secondary">
         Tasks
       </Typography>
       <Typography variant="body1">
         Manage your task checklists. Enter adds a new task.
       </Typography>
-      <Card sx={{ bgcolor: 'surfaceTop' }}>
-        {
-          // make this Card look like <div className="card bgcolor-surface-top gap-md"></div>
-        }
+      <Card sx={{ backgroundColor: 'surfaceTop' }}>
         {tasks.map((eachTask: Task) => (
           <TaskCard
             key={eachTask.id}

@@ -73,7 +73,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  border: 1px dotted var(--onsurface-color);
+  /* border: 1px dotted var(--onsurface-color); */
   outline: none;
   font-family: "ProductSans";
   letter-spacing: 0.02em;
@@ -131,11 +131,17 @@ body {
 .flex-1 {
   flex: 1;
 }
+.flex-03 {
+  flex: 0.3;
+}
 .justify-center {
-  justify-content: center;
+  justify-items: center;
 }
 .justify-stretch {
   justify-content: stretch;
+}
+.justify-items-stretch {
+  justify-items: stretch;
 }
 .justify-start {
   justify-content: flex-start;

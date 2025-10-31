@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Timer } from '../models/Timer';
-import { Typography, Button, TextField } from '@mui/material';
+import { Card, Typography, Button, TextField } from '@mui/material';
 import { AddRounded } from '@mui/icons-material';
 import { load } from '@tauri-apps/plugin-store';
 
@@ -120,7 +120,7 @@ function Timers() {
   }, [timers, isFileLoaded]);
 
   return (
-    <div className="card bgcolor-surface gap-md">
+    <Card className="flex-1 gap-md">
       <Typography variant="h2" color="secondary2">
         Timers
       </Typography>
@@ -141,7 +141,7 @@ function Timers() {
           onDelete={handleDelete}
         />
       ))}
-      <div className="card bgcolor-surface-top">
+      <Card sx={{ backgroundColor: 'surfaceTop' }} className="gap-md">
         <TextField
           type="text"
           variant="filled"
@@ -150,7 +150,7 @@ function Timers() {
           value={newTimerTitle}
           onChange={(e) => setNewTimerTitle(e.target.value)}
         />
-        <div className="row justify-center">
+        <div className="row justify-stretch gap-sm">
           <TextField
             type="number"
             variant="filled"
@@ -163,12 +163,12 @@ function Timers() {
                 setNewTimerHH(Number(e.target.value));
               }
             }}
-            sx={{ width: '6rem' }}
             slotProps={{
               htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 99 },
             }}
+            className="flex-1"
           />
-          <Typography variant="h1" color="textPrimary" className="pd-lg">
+          <Typography variant="h1" color="textPrimary">
             :
           </Typography>
           <TextField
@@ -183,12 +183,12 @@ function Timers() {
                 setNewTimerMM(Number(e.target.value));
               }
             }}
-            sx={{ width: '6rem' }}
             slotProps={{
               htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 59 },
             }}
+            className="flex-1"
           />
-          <Typography variant="h1" color="textPrimary" className="pd-lg">
+          <Typography variant="h1" color="textPrimary">
             :
           </Typography>
           <TextField
@@ -203,10 +203,10 @@ function Timers() {
                 setNewTimerSS(Number(e.target.value));
               }
             }}
-            sx={{ width: '6rem' }}
             slotProps={{
               htmlInput: { maxLength: 2, pattern: '[0-9]*', min: 0, max: 59 },
             }}
+            className="flex-1"
           />
         </div>
         <Button
@@ -221,8 +221,8 @@ function Timers() {
         >
           Set New Timer
         </Button>
-      </div>
-    </div>
+      </Card>
+    </Card>
   );
 }
 

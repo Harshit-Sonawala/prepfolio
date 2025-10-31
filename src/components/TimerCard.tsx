@@ -1,4 +1,5 @@
 import {
+  Card,
   Typography,
   Button,
   IconButton,
@@ -43,7 +44,7 @@ function TimerCard(props: TimerCardProps) {
   const buttonState = getButtonState();
 
   return (
-    <div className="card bgcolor-surface-top gap-md">
+    <Card sx={{ backgroundColor: 'surfaceTop' }}>
       <div className="row justify-between align-start">
         <Typography variant="h3" className="pd-sm">
           {props.title}
@@ -53,7 +54,10 @@ function TimerCard(props: TimerCardProps) {
         </IconButton>
       </div>
       <div className="row justify-evenly gap-md">
-        <div className="stack-parent bgcolor-surface-bright shape-circular pd-sm">
+        <Card
+          sx={{ backgroundColor: 'surfaceBright', borderRadius: '50%' }}
+          className="stack-parent"
+        >
           <CircularProgress
             variant={props.currentSeconds > 0 ? 'determinate' : 'indeterminate'}
             disableShrink={false}
@@ -70,13 +74,13 @@ function TimerCard(props: TimerCardProps) {
           <div className="stack-child">
             <Typography
               variant={props.currentSeconds >= 3600 ? 'h2' : 'h1'}
-              color="white"
+              color="textPrimary"
               className="pd-lg"
             >
               {formatTime(props.currentSeconds)}
             </Typography>
           </div>
-        </div>
+        </Card>
         <div className="col justify-evenly align-stretch gap-md">
           <Button
             className="flex-1"
@@ -108,7 +112,7 @@ function TimerCard(props: TimerCardProps) {
           </Button>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
 

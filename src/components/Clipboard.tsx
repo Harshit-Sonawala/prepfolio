@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Typography } from '@mui/material';
+import { Card, Typography } from '@mui/material';
 
 function Clipboard() {
   const [clipboard, setClipboard] = useState<string[]>([
@@ -8,7 +8,7 @@ function Clipboard() {
     'https://v2.tauri.app/',
   ]);
   return (
-    <div className="card bgcolor-surface gap-md">
+    <Card className="flex-1 gap-md">
       <Typography variant="h2" color="secondary3">
         Clipboard
       </Typography>
@@ -20,7 +20,7 @@ function Clipboard() {
           <Typography>{clipItem}</Typography>
         </div>
       ))}
-    </div>
+    </Card>
   );
 }
 

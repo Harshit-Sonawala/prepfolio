@@ -31,13 +31,12 @@ function TopBar(props: TopBarProps) {
 
   return (
     <Card
-      className="row justify-between align-center gap-md"
       sx={{
         flexDirection: 'row',
-        justifyItems: 'space-between',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        gap: '1rem',
       }}
+      className="row justify-between align-center"
     >
       <Typography variant="h1" className="pd-md">
         Prepfolio

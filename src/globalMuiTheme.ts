@@ -37,7 +37,7 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
     },
     background: {
       default: mode === 'dark' ? '#1d1d1d' : '#f5f5f5',
-      paper: mode === 'dark' ? '#222222' : '#ffffff',
+      paper: mode === 'dark' ? '#222222' : '#f4f4f4',
     },
     text: {
       primary: mode === 'dark' ? '#f4f4f4' : '#1d1d1d',
@@ -45,8 +45,8 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
     },
     divider: mode === 'dark' ? '#3d3d3d' : '#e0e0e0',
     // Custom colors
-    surfaceTop: mode === 'dark' ? '#2d2d2d' : '#fafafa',
-    surfaceBright: mode === 'dark' ? '#3d3d3d' : '#e8e8e8',
+    surfaceTop: mode === 'dark' ? '#2d2d2d' : '#ececec',
+    surfaceBright: mode === 'dark' ? '#3d3d3d' : '#dfdfdf',
     primary2: '#004d80',
     secondary2: '#7e83e6',
     secondary3: '#e1d550',

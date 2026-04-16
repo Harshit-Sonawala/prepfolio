@@ -178,6 +178,7 @@ input[type=number] {
   display: flex;
 }
 .stack-child {
+  border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 50%;

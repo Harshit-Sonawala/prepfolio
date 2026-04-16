@@ -41,7 +41,7 @@ function TopBar(props: TopBarProps) {
       <Typography variant="h1" className="pd-md">
         Prepfolio
       </Typography>
-      <Card>
+      <Card sx={{ backgroundColor: 'surfaceTop' }}>
         <Typography variant="h3">{formattedDateTime}</Typography>
       </Card>
       <FormControlLabel

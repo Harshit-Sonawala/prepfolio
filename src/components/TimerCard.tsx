@@ -55,7 +55,11 @@ function TimerCard(props: TimerCardProps) {
       </div>
       <div className="row justify-evenly gap-md">
         <Card
-          sx={{ backgroundColor: 'surfaceBright', borderRadius: '50%' }}
+          sx={{
+            backgroundColor: 'surfaceBright',
+            borderRadius: '50%',
+            padding: '0.5rem',
+          }}
           className="stack-parent"
         >
           <CircularProgress

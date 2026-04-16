@@ -26,7 +26,7 @@ function Timers() {
             };
           }
           return timer;
-        })
+        }),
       );
     }, 1000); // 1000ms = 1s
 
@@ -37,8 +37,8 @@ function Timers() {
   const togglePlay = (id: number) => {
     setTimers((prevTimers) =>
       prevTimers.map((timer) =>
-        timer.id === id ? { ...timer, isActive: !timer.isActive } : timer
-      )
+        timer.id === id ? { ...timer, isActive: !timer.isActive } : timer,
+      ),
     );
   };
 
@@ -48,8 +48,8 @@ function Timers() {
       prevTimers.map((timer) =>
         timer.id === id
           ? { ...timer, currentSeconds: timer.initialSeconds, isActive: false }
-          : timer
-      )
+          : timer,
+      ),
     );
   };
 
@@ -59,8 +59,8 @@ function Timers() {
       prevTimers.map((timer) =>
         timer.id === id
           ? { ...timer, currentSeconds: timer.currentSeconds + 60 }
-          : timer
-      )
+          : timer,
+      ),
     );
   };
 

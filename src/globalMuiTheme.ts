@@ -47,9 +47,9 @@ const getThemeConfig = (mode: ThemeMode): ThemeOptions => ({
     // Custom colors
     surfaceTop: mode === 'dark' ? '#2d2d2d' : '#ececec',
     surfaceBright: mode === 'dark' ? '#3d3d3d' : '#dfdfdf',
-    primary2: '#004d80',
-    secondary2: '#7e83e6',
-    secondary3: '#e1d550',
+    primary2: mode === 'dark' ? '#004d80' : '#b3e5fc',
+    secondary2: mode === 'dark' ? '#7e83e6' : '#5c6bc0',
+    secondary3: mode === 'dark' ? '#e1d550' : '#fbc02d',
   },
   shape: {
     borderRadius: 8,

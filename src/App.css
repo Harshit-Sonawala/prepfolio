@@ -24,20 +24,7 @@
   font-style: normal;
 }
 
-/* Colors */
-:root {
-  --background-color: #1d1d1d;
-  --surface-color: #222222;
-  --surface-top-color: #2d2d2d;
-  --surface-bright-color: #3d3d3d;
-  --onsurface-color: #f4f4f4;
-  --onsurface-dark-color: #aaaaaa;
-  --primary-color: #60daff;
-  --secondary-color1: #0bddb0;
-  --secondary-color2: #7e83e6;
-  --secondary-color3: #e1d550;
-  --error-color: #e54f35;
-}
+/* Colors - Variables now managed via App.tsx GlobalStyles */
 
 .color-prim {
   color: var(--primary-color);
@@ -66,21 +53,17 @@
 
 /* Defaults / Reset */
 *{
-  /* display: block; */
   box-sizing: border-box;
   overscroll-behavior: none;
-  /* overflow: hidden; */
   margin: 0;
   padding: 0;
   border: 0;
-  /* border: 1px dotted var(--onsurface-color); */
   outline: none;
   font-family: "ProductSans";
   letter-spacing: 0.02em;
   font-weight: normal;
   font-style: normal;
   font-size: 1rem;
-  /* color: var(--onsurface-color); */
 }
 
 /* Remove input type="number" Buttons - Chrome, Safari, Edge, Opera */
@@ -97,10 +80,6 @@ input[type=number] {
 
 .debug {
   border: 1px dotted var(--error-color);
-}
-
-body {
-  background-color: var(--background-color);
 }
 
 .root {

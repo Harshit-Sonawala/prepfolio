@@ -41,16 +41,17 @@ function TopBar(props: TopBarProps) {
       <Typography variant="h1" className="pd-md">
         Prepfolio
       </Typography>
-      <Typography variant="h3">{formattedDateTime}</Typography>
+      <Card>
+        <Typography variant="h3">{formattedDateTime}</Typography>
+      </Card>
       <FormControlLabel
         control={
           <Switch
-            defaultChecked
             checked={props.isDarkMode}
             onChange={(e) => props.onThemeToggle(e.target.checked)}
           />
         }
-        label="Theme: Dark"
+        label={props.isDarkMode ? 'Theme: Dark' : 'Theme: Light'}
       />
     </Card>
     // </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, Typography } from '@mui/material';
+import { Card, Typography, Box } from '@mui/material';
 import { load } from '@tauri-apps/plugin-store';
 
 function Clipboard() {
@@ -37,6 +37,11 @@ function Clipboard() {
     saveClipboard();
   }, [clipboard, isFileLoaded]);
 
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    console.log('Copied to clipboard:', text);
+  };
+
   return (
     <Card className="flex-1 gap-md">
       <Typography variant="h2" color="secondary3">
@@ -45,11 +50,29 @@ function Clipboard() {
       <Typography variant="body1">
         Click to copy to clipboard. Paste to add it here.
       </Typography>
-      {clipboard.map((eachClip: string, index: number) => (
-        <div key={index} className="card bgcolor-surface-top">
-          <Typography>{eachClip}</Typography>
-        </div>
+      {clipboard.map((clipItem: string, index: number) => (
+        <Box 
+          key={index} 
+          className="card"
+          onClick={() => copyToClipboard(clipItem)}
+          sx={{ 
+            bgcolor: 'surfaceTop',
+            cursor: 'pointer',
+            transition: 'background-color 0.2s ease, transform 0.1s ease',
+            '&:hover': {
+              bgcolor: 'surfaceBright',
+            },
+            '&:active': {
+              bgcolor: 'secondary3',
+              color: 'background.paper',
+              transform: 'scale(0.98)',
+            }
+          }}
+        >
+          <Typography sx={{ color: 'inherit' }}>{clipItem}</Typography>
+        </Box>
       ))}
+
     </Card>
   );
 }

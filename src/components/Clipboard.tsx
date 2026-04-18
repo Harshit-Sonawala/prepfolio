@@ -3,12 +3,22 @@ import { Card, Typography, Box } from '@mui/material';
 import { load } from '@tauri-apps/plugin-store';
 
 function Clipboard() {
-  const [clipboard, setClipboard] = useState<string[]>([
-    'https://hss-portfolio-flax.vercel.app/',
-    'https://mui.com/material-ui/material-icons/',
-    'https://v2.tauri.app/',
-  ]);
+  const [clipboard, setClipboard] = useState<string[]>([]);
   const [isFileLoaded, setIsFileLoaded] = useState<boolean>(false);
+
+  // Global paste listener
+  useEffect(() => {
+    const handlePaste = (event: ClipboardEvent) => {
+      const pastedText = event.clipboardData?.getData('text');
+      if (pastedText && pastedText.trim() !== '') {
+        setClipboard((prevClips) => [...prevClips, pastedText.trim()]);
+        console.log('Added clip from paste:', pastedText.trim());
+      }
+    };
+
+    window.addEventListener('paste', handlePaste);
+    return () => window.removeEventListener('paste', handlePaste);
+  }, []);
 
   // load clipboard from file on mount
   useEffect(() => {
@@ -51,11 +61,11 @@ function Clipboard() {
         Click to copy to clipboard. Paste to add it here.
       </Typography>
       {clipboard.map((clipItem: string, index: number) => (
-        <Box 
-          key={index} 
+        <Box
+          key={index}
           className="card"
           onClick={() => copyToClipboard(clipItem)}
-          sx={{ 
+          sx={{
             bgcolor: 'surfaceTop',
             cursor: 'pointer',
             transition: 'background-color 0.2s ease, transform 0.1s ease',
@@ -66,13 +76,12 @@ function Clipboard() {
               bgcolor: 'secondary3',
               color: 'background.paper',
               transform: 'scale(0.98)',
-            }
+            },
           }}
         >
           <Typography sx={{ color: 'inherit' }}>{clipItem}</Typography>
         </Box>
       ))}
-
     </Card>
   );
 }

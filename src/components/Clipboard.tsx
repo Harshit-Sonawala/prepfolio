@@ -82,21 +82,26 @@ function Clipboard() {
               color: 'background.paper',
               transform: 'scale(0.98)',
             },
+            // Flash error red color when the delete button is pressed
+            '&:has(button:active)': {
+              bgcolor: 'error.main',
+              color: 'background.paper',
+            },
           }}
         >
           <div className="row nowrap flex-1 justify-between align-center">
-            <Typography 
-              sx={{ 
+            <Typography
+              sx={{
                 color: 'inherit',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
                 whiteSpace: 'nowrap',
-                flex: 1
+                flex: 1,
               }}
             >
               {eachClip}
             </Typography>
-            <IconButton 
+            <IconButton
               size="small"
               onClick={(e) => {
                 e.stopPropagation();

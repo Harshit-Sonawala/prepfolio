@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Timer } from '../models/Timer';
-import { Card, Typography, Button, TextField } from '@mui/material';
+import { Card, Typography, Button, TextField, Divider } from '@mui/material';
 import { AddRounded } from '@mui/icons-material';
 import { load } from '@tauri-apps/plugin-store';
 
@@ -141,7 +141,11 @@ function Timers() {
           onDelete={handleDelete}
         />
       ))}
+      <Divider sx={{ margin: '0.5rem' }} />
       <Card sx={{ backgroundColor: 'surfaceTop' }} className="gap-md">
+        <Typography variant="h3" className="pd-sm">
+          Set New Timer
+        </Typography>
         <TextField
           type="text"
           variant="filled"

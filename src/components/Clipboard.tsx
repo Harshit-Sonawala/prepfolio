@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { load } from '@tauri-apps/plugin-store';
-import { Card, Typography, Box, IconButton } from '@mui/material';
-import { CloseRounded } from '@mui/icons-material';
+import { Card, Typography, Box } from '@mui/material';
+import DeleteIconButton from './DeleteIconButton';
 
 function Clipboard() {
   const [clipboard, setClipboard] = useState<string[]>([]);
@@ -100,26 +100,12 @@ function Clipboard() {
             >
               {eachClip}
             </Typography>
-            <IconButton
+            <DeleteIconButton
               onClick={(e) => {
                 e.stopPropagation();
                 deleteClip(index);
               }}
-              sx={{
-                color: 'text.secondary',
-                transition: 'background-color 0.1s ease, transform 0.1s ease',
-                '&:hover': {
-                  color: 'error.main',
-                },
-                '&:active': {
-                  bgcolor: 'error.main',
-                  color: 'white',
-                  transform: 'scale(0.98)',
-                },
-              }}
-            >
-              <CloseRounded />
-            </IconButton>
+            />
           </div>
         </Box>
       ))}

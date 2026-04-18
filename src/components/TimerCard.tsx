@@ -2,7 +2,6 @@ import {
   Card,
   Typography,
   Button,
-  IconButton,
   CircularProgress,
 } from '@mui/material';
 import {
@@ -10,10 +9,10 @@ import {
   PauseRounded,
   StopRounded,
   ReplayRounded,
-  CloseRounded,
   AddRounded,
 } from '@mui/icons-material';
 import { formatTime } from '../utils/formatTime';
+import DeleteIconButton from './DeleteIconButton';
 
 type TimerCardProps = {
   id: number;
@@ -49,22 +48,7 @@ function TimerCard(props: TimerCardProps) {
         <Typography variant="h3" className="pd-sm">
           {props.title}
         </Typography>
-        <IconButton
-          onClick={() => props.onDelete(props.id)}
-          sx={{
-            color: 'text.secondary',
-            transition: 'background-color 0.1s ease',
-            '&:hover': {
-              color: 'error.main',
-            },
-            '&:active': {
-              bgcolor: 'error.main',
-              color: 'white',
-            },
-          }}
-        >
-          <CloseRounded />
-        </IconButton>
+        <DeleteIconButton onClick={() => props.onDelete(props.id)} />
       </div>
       <div className="row justify-evenly gap-md">
         <Card

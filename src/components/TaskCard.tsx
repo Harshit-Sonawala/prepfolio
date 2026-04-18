@@ -1,5 +1,5 @@
-import { Typography, Checkbox, IconButton } from '@mui/material';
-import { CloseRounded } from '@mui/icons-material';
+import { Typography, Checkbox } from '@mui/material';
+import DeleteIconButton from './DeleteIconButton';
 
 type TaskCardProps = {
   id: number;
@@ -23,22 +23,7 @@ function TaskCard(props: TaskCardProps) {
           {props.title}
         </Typography>
       </div>
-      <IconButton
-        onClick={() => props.onDelete(props.id)}
-        sx={{
-          color: 'text.secondary',
-          transition: 'background-color 0.1s ease',
-          '&:hover': {
-            color: 'error.main',
-          },
-          '&:active': {
-            bgcolor: 'error.main',
-            color: 'white',
-          },
-        }}
-      >
-        <CloseRounded />
-      </IconButton>
+      <DeleteIconButton onClick={() => props.onDelete(props.id)} />
     </div>
   );
 }

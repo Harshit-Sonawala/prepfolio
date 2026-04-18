@@ -49,7 +49,20 @@ function TimerCard(props: TimerCardProps) {
         <Typography variant="h3" className="pd-sm">
           {props.title}
         </Typography>
-        <IconButton onClick={() => props.onDelete(props.id)}>
+        <IconButton
+          onClick={() => props.onDelete(props.id)}
+          sx={{
+            color: 'text.secondary',
+            transition: 'background-color 0.1s ease',
+            '&:hover': {
+              color: 'error.main',
+            },
+            '&:active': {
+              bgcolor: 'error.main',
+              color: 'white',
+            },
+          }}
+        >
           <CloseRounded />
         </IconButton>
       </div>

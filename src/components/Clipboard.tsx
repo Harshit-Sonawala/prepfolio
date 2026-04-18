@@ -85,7 +85,6 @@ function Clipboard() {
             // Flash error red color when the delete button is pressed
             '&:has(button:active)': {
               bgcolor: 'error.main',
-              color: 'background.paper',
             },
           }}
         >
@@ -102,14 +101,24 @@ function Clipboard() {
               {eachClip}
             </Typography>
             <IconButton
-              size="small"
               onClick={(e) => {
                 e.stopPropagation();
                 deleteClip(index);
               }}
-              sx={{ color: 'inherit' }}
+              sx={{
+                color: 'text.secondary',
+                transition: 'background-color 0.1s ease, transform 0.1s ease',
+                '&:hover': {
+                  color: 'error.main',
+                },
+                '&:active': {
+                  bgcolor: 'error.main',
+                  color: 'white',
+                  transform: 'scale(0.98)',
+                },
+              }}
             >
-              <CloseRounded fontSize="small" />
+              <CloseRounded />
             </IconButton>
           </div>
         </Box>

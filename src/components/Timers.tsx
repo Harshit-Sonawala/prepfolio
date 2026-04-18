@@ -18,14 +18,14 @@ function Timers() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTimers((prevTimers) =>
-        prevTimers.map((timer) => {
-          if (timer.isActive) {
+        prevTimers.map((eachTimer) => {
+          if (eachTimer.isActive) {
             return {
-              ...timer,
-              currentSeconds: timer.currentSeconds - 1,
+              ...eachTimer,
+              currentSeconds: eachTimer.currentSeconds - 1,
             };
           }
-          return timer;
+          return eachTimer;
         }),
       );
     }, 1000); // 1000ms = 1s
@@ -34,39 +34,39 @@ function Timers() {
   }, []);
 
   // toggle play/pause for a timer
-  const togglePlay = (id: number) => {
+  const toggleTimerPlay = (id: number) => {
     setTimers((prevTimers) =>
-      prevTimers.map((timer) =>
-        timer.id === id ? { ...timer, isActive: !timer.isActive } : timer,
+      prevTimers.map((eachTimer) =>
+        eachTimer.id === id ? { ...eachTimer, isActive: !eachTimer.isActive } : eachTimer,
       ),
     );
   };
 
   // restart timer to initial time
-  const handleRestart = (id: number) => {
+  const restartTimer = (id: number) => {
     setTimers((prevTimers) =>
-      prevTimers.map((timer) =>
-        timer.id === id
-          ? { ...timer, currentSeconds: timer.initialSeconds, isActive: false }
-          : timer,
+      prevTimers.map((eachTimer) =>
+        eachTimer.id === id
+          ? { ...eachTimer, currentSeconds: eachTimer.initialSeconds, isActive: false }
+          : eachTimer,
       ),
     );
   };
 
   // add 1 min
-  const handleAddMinute = (id: number) => {
+  const addMinuteToTimer = (id: number) => {
     setTimers((prevTimers) =>
-      prevTimers.map((timer) =>
-        timer.id === id
-          ? { ...timer, currentSeconds: timer.currentSeconds + 60 }
-          : timer,
+      prevTimers.map((eachTimer) =>
+        eachTimer.id === id
+          ? { ...eachTimer, currentSeconds: eachTimer.currentSeconds + 60 }
+          : eachTimer,
       ),
     );
   };
 
   // delete timer
-  const handleDelete = (id: number) => {
-    setTimers((prevTimers) => prevTimers.filter((timer) => timer.id !== id));
+  const deleteTimer = (id: number) => {
+    setTimers((prevTimers) => prevTimers.filter((eachTimer) => eachTimer.id !== id));
   };
 
   // add a new timer through textfields
@@ -127,18 +127,18 @@ function Timers() {
       <Typography variant="body1">
         Set timers to manage your tasks and send notifications.
       </Typography>
-      {timers.map((timer) => (
+      {timers.map((eachTimer) => (
         <TimerCard
-          key={timer.id}
-          id={timer.id}
-          title={timer.title ?? `Timer ${timer.id}`}
-          initialSeconds={timer.initialSeconds}
-          currentSeconds={timer.currentSeconds}
-          isActive={timer.isActive}
-          togglePlay={togglePlay}
-          onRestart={handleRestart}
-          onAddMinute={handleAddMinute}
-          onDelete={handleDelete}
+          key={eachTimer.id}
+          id={eachTimer.id}
+          title={eachTimer.title ?? `Timer ${eachTimer.id}`}
+          initialSeconds={eachTimer.initialSeconds}
+          currentSeconds={eachTimer.currentSeconds}
+          isActive={eachTimer.isActive}
+          togglePlay={toggleTimerPlay}
+          onRestart={restartTimer}
+          onAddMinute={addMinuteToTimer}
+          onDelete={deleteTimer}
         />
       ))}
       <Divider sx={{ margin: '0.5rem' }} />

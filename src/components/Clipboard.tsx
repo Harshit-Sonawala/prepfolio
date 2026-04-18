@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Card, Typography, Box } from '@mui/material';
 import { load } from '@tauri-apps/plugin-store';
+import { Card, Typography, Box, IconButton } from '@mui/material';
+import { CloseRounded } from '@mui/icons-material';
 
 function Clipboard() {
   const [clipboard, setClipboard] = useState<string[]>([]);
@@ -52,6 +53,10 @@ function Clipboard() {
     console.log('Copied to clipboard:', text);
   };
 
+  const deleteClip = (index: number) => {
+    setClipboard((prevClips) => prevClips.filter((_, i) => i !== index));
+  };
+
   return (
     <Card className="flex-1 gap-md">
       <Typography variant="h2" color="secondary3">
@@ -60,11 +65,11 @@ function Clipboard() {
       <Typography variant="body1">
         Click to copy to clipboard. Paste to add it here.
       </Typography>
-      {clipboard.map((clipItem: string, index: number) => (
+      {clipboard.map((eachClip: string, index: number) => (
         <Box
           key={index}
           className="card"
-          onClick={() => copyToClipboard(clipItem)}
+          onClick={() => copyToClipboard(eachClip)}
           sx={{
             bgcolor: 'surfaceTop',
             cursor: 'pointer',
@@ -79,7 +84,29 @@ function Clipboard() {
             },
           }}
         >
-          <Typography sx={{ color: 'inherit' }}>{clipItem}</Typography>
+          <div className="row nowrap flex-1 justify-between align-center">
+            <Typography 
+              sx={{ 
+                color: 'inherit',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                flex: 1
+              }}
+            >
+              {eachClip}
+            </Typography>
+            <IconButton 
+              size="small"
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteClip(index);
+              }}
+              sx={{ color: 'inherit' }}
+            >
+              <CloseRounded fontSize="small" />
+            </IconButton>
+          </div>
         </Box>
       ))}
     </Card>
